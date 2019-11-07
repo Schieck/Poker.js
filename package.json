@@ -1,7 +1,7 @@
 {
   "name": "poker",
   "version": "1.0.0",
-  "description": "A poker game developed in jas",
+  "description": "A poker game developed in js",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,10 +15,9 @@
     "javascript",
     "PUCRS"
   ],
-  "author": "Ricardo Schieck, João Pedro Martis",
+  "author": "Ricardo Schieck, João Pedro Martis, Delmar Lucas, Guilherme Dall'Agnol, Lucas Silva, Vitor Hugo, Lucas Bankow",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Schieck/Poker.js/issues"
-  },
-  "homepage": "https://github.com/Schieck/Poker.js#readme"
+  "dependencies": {
+    
+  }
 }
