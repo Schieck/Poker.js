@@ -1,2 +1,2 @@
 # Poker.js
-Poker game with javascript.
+Poker game with javascript on unity.
