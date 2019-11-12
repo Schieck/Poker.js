@@ -50,12 +50,11 @@ class Mesa {
     }
 
     distributeCards() {
-        [0, this.players.length].forEach(loop => {
-            this.players.forEach((player, index) => {
+        [0, this.players.length].forEach(loop =>
+            this.players.forEach((player, index) =>
                 player.cartas.push(this.deck[index + loop])
-                lastIndex++
-            })
-        })
+            )
+        )
         this.cartas = _.slice(this.deck, this.players.length * 2, this.players.length * 2 + 5)
     }
 
