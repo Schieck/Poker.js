@@ -5,7 +5,7 @@ class User {
             return carta
         })
         this.valor = valor
-
+        this.playable = true
     }
 
     play(mesa) {
