@@ -1,7 +1,6 @@
 # Poker.js
-Poker game with javascript on unity.
-
----
+Poker game with javascript.
+Created by ES depression
 
 ## TODOS
 * [X] - Criar cartas
