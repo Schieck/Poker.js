@@ -19,8 +19,10 @@ div {
 .mesa {
   height:400px;
   width: 100vh;
-  background-color: #3cb371;
-  border-radius: 500px;
+  background: rgb(14,71,4);
+  background: linear-gradient(90deg, rgba(14,71,4,1) 0%, rgba(8,43,2,1) 100%);
+  border: 5px solid rgb(99, 56, 1);
+  border-radius: 30%;
 }
 
 .right{
