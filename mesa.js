@@ -4,8 +4,7 @@ class Mesa {
         this.tablePit = tablePit
         this.deck = deck
         this.user = user
-        this.rodada = 1
-        this.turno = 0
+        this.round = 1
     }
 
     setUpHand() {
@@ -16,23 +15,39 @@ class Mesa {
 
     }
 
-    playFirsts() {
-        this.firstPlayers.forEach(player => player.play(this, this.turno++))
+    userAction(quit) {
+        this.user.play(this, quit)
+        this.playLast()
     }
 
+    playFirsts() {
+        /*this.findPlayablePlayers(this.firstPlayers).forEach(player => {
+            setTimeout(() => {
+                player.play(this) 
+            }, 2000);
+        })*/
+        this.findPlayablePlayers(this.firstPlayers).forEach(player => player.play(this))
+    }
+
+
     playLast() {
-        this.lastPlayers.forEach(player => player.play(this, this.turno++))
-        turnNextCards()
+        /*this.findPlayablePlayers(this.lastPlayers).forEach(player => {
+            setTimeout(() => {
+                player.play(this) 
+            }, 2000);
+        })*/
+        this.findPlayablePlayers(this.lastPlayers).forEach(player => player.play(this))
+        this.turnNextCards()
     }
 
     turnNextCards() {
-        if (this.rodada == 1) {
-            this.cartas = _.map(_.take(this.cartas, 3), carta => {
-                carta.visibilidade = true
-                return carta
+        if (this.round == 1) {
+            this.tableCards = _.map(_.take(this.tableCards, 3), card => {
+                card.visibilidade = true
+                return card
             })
         }
-        _.find(this.cartas, carta => !carta.visibilidade).visibilidade = true
+        _.find(this.tableCards, card => !card.visibilidade).visibilidade = true
     }
 
     nextHand() {
@@ -41,21 +56,17 @@ class Mesa {
         this.setUpHand()
     }
 
-    //@Todo caso usuarios não tenham o valor cheio, como prosseguir?
-    //@Todo Avaliar com o lucas
     dealFirstBets() {
-        this.tablePit += 75
-        this.players[1].valor -= 25
-        this.players[2].valor -= 50
+        this.tablePit += _.sum(_.slice(this.players, 0, 1), player => player.getBet())
     }
 
     distributeCards() {
-        [0, this.players.length].forEach(loop =>
+        [0, this.players.length - 1].forEach(loop =>
             this.players.forEach((player, index) =>
-                player.cartas.push(this.deck[index + loop])
+                player.tableCards.push(this.deck[index + loop])
             )
         )
-        this.cartas = _.slice(this.deck, this.players.length * 2, this.players.length * 2 + 5)
+        this.tableCards = _.slice(this.deck, this.players.length * 2, this.players.length * 2 + 5)
     }
 
     moveDealer() {
@@ -64,6 +75,10 @@ class Mesa {
             this.players[i - 1] = this.players[i]
         }
         this.players[this.players.length - 1] = firstPlayer
+    }
+
+    findPlayablePlayers(players) {
+        return players.filter(player => player.playable)
     }
 
 }
