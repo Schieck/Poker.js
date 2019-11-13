@@ -2,17 +2,13 @@ div {
     width: 100%;
 }
 
-
-
 .player_bot {
-
     height: 70px;
     width: 70px;
     border-radius: 50%;
     box-shadow: 0px 1px 5px black;
     background: rgb(125,119,232);
     background: linear-gradient(90deg, rgba(125,119,232,1) 0%, rgba(162,239,255,1) 100%);
-
 }
 
 .user {
@@ -28,12 +24,14 @@ div {
 }
 
 .right{
-	display:flex;
+    display:flex;
+    align-items: center;
 	justify-content: flex-end;
 }
 
 .left{
-	display:flex;
+    display:flex;
+    align-items: center;
 	justify-content: flex-start;
 }
 
@@ -41,6 +39,11 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.padding {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 body {
