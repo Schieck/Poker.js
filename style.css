@@ -1,0 +1,28 @@
+div {
+    width: 100%;
+}
+
+.player_bot {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    box-shadow: 0px 1px 5px black;
+    background: rgb(125,119,232);
+    background: linear-gradient(90deg, rgba(125,119,232,1) 0%, rgba(162,239,255,1) 100%);
+}
+
+.user {
+    background: rgb(157,33,33);
+    background: linear-gradient(90deg, rgba(157,33,33,1) 0%, rgba(209,162,255,1) 100%);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
