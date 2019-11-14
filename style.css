@@ -1,5 +1,33 @@
+body {
+    width: 100vw;
+    height: 100vh;
+	background-image: url("http://getwallpapers.com/wallpaper/full/3/2/7/488264.jpg");
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
 div {
     width: 100%;
+}
+
+d1 {
+	width: 80%;
+}
+
+d2 {
+	width: 40%;
+}
+
+d3 {
+	width: 60%;
+}
+
+img {
+  width: 131px;
+  height: 200px;
+  object-fit: cover;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .player_bot {
@@ -16,7 +44,7 @@ div {
     background: linear-gradient(90deg, rgba(157,33,33,1) 0%, rgba(209,162,255,1) 100%);
 }
 
-.mesa {
+.table {
   height:400px;
   width: 100vh;
   background: rgb(14,71,4);
@@ -24,6 +52,36 @@ div {
   border: 15px solid rgb(99, 56, 1);
   border-radius: 20%;
   box-shadow: 0px 1px 5px black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.table_cards{
+  width: 43px;
+  height: 65px;
+  object-fit: cover;
+  display: flex;
+  justify-content: flex-start;	
+}
+
+.bot_card {
+	width: 26px;
+	height: 40px;
+	object-fit: cover;
+	display: flex;
+	justify-content: flex-start;	
+	image-orientation: from-image;
+}
+
+.player_card {
+  width: 131px;
+  height: 200px;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .right{
@@ -38,6 +96,18 @@ div {
 	justify-content: flex-start;
 }
 
+.topRight{
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+}
+
+.top_left{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -45,9 +115,19 @@ div {
 }
 
 .button {
-	height: 20px;
+	height: 100px;
+	width: 200px
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+
+}
+
+.menuButton{
+	height: 70px;
 	width: 80px;
-	padding: 60px;
+	padding: 10px;
 	font-size: 20px;
 	display: flex;
 	justify-content: center;
@@ -59,8 +139,10 @@ div {
     padding-bottom: 15px;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
-	background-image: url("http://getwallpapers.com/wallpaper/full/3/2/7/488264.jpg");
-}
+
+
+
+ 
+
+
+
