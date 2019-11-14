@@ -21,8 +21,9 @@ div {
   width: 100vh;
   background: rgb(14,71,4);
   background: linear-gradient(90deg, rgba(14,71,4,1) 0%, rgba(8,43,2,1) 100%);
-  border: 5px solid rgb(99, 56, 1);
-  border-radius: 30%;
+  border: 15px solid rgb(99, 56, 1);
+  border-radius: 20%;
+  box-shadow: 0px 1px 5px black;
 }
 
 .right{
@@ -43,6 +44,16 @@ div {
     align-items: center;
 }
 
+.button {
+	height: 20px;
+	width: 80px;
+	padding: 60px;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+
+}
 .padding {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -51,4 +62,5 @@ div {
 body {
     width: 100vw;
     height: 100vh;
+	background-image: url("http://getwallpapers.com/wallpaper/full/3/2/7/488264.jpg");
 }
