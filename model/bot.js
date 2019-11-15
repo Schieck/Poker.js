@@ -1,21 +1,19 @@
 class Bot {
-    constructor(valor) {
+    constructor(id, valor) {
+        this.id = id
         this.valor = valor
         this.playable = true
     }
 
     play(mesa) {
-        //@Todo implementar logica de jogo do bot
+        mesa.tablePit += this.getBet()
     }
 
     receiveCards(cards) {
-        this.cartas = cards.map(carta => {
-            carta.visibilidade = true
-            return carta
-        })
+        this.cards = cards
     }
 
-    gerBet() {
+    getBet() {
         if(this.valor < 50) {
             let value = this.valor
             this.valor = 0

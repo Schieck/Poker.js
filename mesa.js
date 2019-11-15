@@ -1,17 +1,15 @@
 class Mesa {
-    constructor(players, tablePit, deck) {
+    constructor(players, tablePit) {
         this.players = players
         this.tablePit = tablePit
-        this.deck = deck
-        this.user = user
         this.round = 1
     }
 
     setUpHand() {
         this.distributeCards()
-        this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof User))
-        this.user = _.find(this.players, player => player instanceof User)
-        this.lastPlayers = _.takeRightWhile(this.players, player => !(player instanceof User))
+        this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof Jogador))
+        this.user = _.find(this.players, player => player instanceof Jogador)
+        this.lastPlayers = _.takeRightWhile(this.players, player => !(player instanceof Jogador))
 
     }
 
@@ -51,7 +49,6 @@ class Mesa {
     }
 
     nextHand() {
-        this.deck.shuffle()
         this.moveDealer()
         this.setUpHand()
     }
@@ -61,12 +58,13 @@ class Mesa {
     }
 
     distributeCards() {
-        [0, this.players.length - 1].forEach(loop =>
-            this.players.forEach((player, index) =>
-                player.tableCards.push(this.deck[index + loop])
-            )
-        )
-        this.tableCards = _.slice(this.deck, this.players.length * 2, this.players.length * 2 + 5)
+        this.deck = new Deck()
+        this.deck.shuffle()
+        this.players.forEach((player) => {            
+            player.receiveCards(_.slice(this.deck.cards, 0, 2))
+            _.drop(this.deck.cards, 2)
+        })
+        this.tableCards = _.slice(this.deck.cards, 0, 4)
     }
 
     moveDealer() {

@@ -1,7 +1,7 @@
 class Jogador {
-    constructor(valor, cartas) {
+    constructor(id, valor) {
+        this.id = id
         this.valor = valor
-        this.cartas = cartas
         this.playable = true
     }
 
@@ -9,12 +9,15 @@ class Jogador {
         if(quit) {
             this.playable = false
         } else {
-            this.mesa.tablePit += this.getBet()
+            mesa.tablePit += this.getBet()
         }
     }
 
     receiveCards(cards) {
-        this.cartas = cards
+        this.cards = cards.map(card => {
+            card.visibilidade = true
+            return card
+        })
     }
 
     getBet() {

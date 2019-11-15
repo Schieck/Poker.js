@@ -1,15 +1,24 @@
+let players = [new Bot('bot1', 500), new Bot('bot2', 500),
+       new Jogador('player', 500), new Bot('bot4', 500), new Bot('bot5', 500)]
+    let mesa = new Mesa(players, 0)
 window.onload = () => {
-    let deck = new Deck();
+    mesa.setUpHand()
+    drawTable(mesa)
+    mesa.playFirsts()
+    //drawTable(mesa)
+}
 
-    deck.shuffle();
-
-    var card1 = document.getElementById("img1");
-    var card2 = document.getElementById("img2");
-
-    console.log(card1);
-    console.log(card2);
-
-
-    card1.src = deck.cards[0].frontImage;
-    card2.src = deck.cards[1].frontImage;
+const drawTable = (mesa) => {
+    mesa.players.forEach(player => {
+        //Adiciona valor para players
+        $('#' + player.id).html(player.valor);
+        player.cards.forEach((card, index) => {
+            if(card.visibilidade) {
+                var img = $(`#${player.id}_card${index}`)
+                if(img) {
+                    img.attr("src", card.frontImage)
+                } 
+            }
+        })
+    });
 }
