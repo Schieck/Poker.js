@@ -5,8 +5,9 @@ class Bot {
         this.playable = true
     }
 
-    play(mesa) {
-        mesa.tablePit += this.getBet()
+    play() {
+        return this.getBet()
+        
     }
 
     receiveCards(cards) {

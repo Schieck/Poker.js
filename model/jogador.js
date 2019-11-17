@@ -8,8 +8,9 @@ class Jogador {
     play(mesa, quit) {
         if(quit) {
             this.playable = false
+            return 0
         } else {
-            mesa.tablePit += this.getBet()
+            return this.getBet()
         }
     }
 
