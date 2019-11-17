@@ -13,6 +13,16 @@ class Bot {
         this.cards = cards
     }
 
+    receiveChips(value) {
+        this.valor += value
+    }
+
+    setVisibleCards(visible) {
+        this.cards.forEach(card => {
+            card.visibilidade = visible
+        });
+    }
+
     getBet() {
         if(this.valor < 50) {
             let value = this.valor

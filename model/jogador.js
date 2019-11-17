@@ -14,10 +14,18 @@ class Jogador {
     }
 
     receiveCards(cards) {
-        this.cards = cards.map(card => {
-            card.visibilidade = true
-            return card
-        })
+        this.cards = cards
+        this.setVisibleCards(true)
+    }
+
+    setVisibleCards(visible) {
+        this.cards.forEach(card => {
+            card.visibilidade = visible
+        });
+    }
+
+    receiveChips(value) {
+        this.valor += value
     }
 
     getBet() {

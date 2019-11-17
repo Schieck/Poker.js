@@ -1,11 +1,18 @@
 let players = [new Bot('bot1', 500), new Bot('bot2', 500),
-       new Jogador('player', 500), new Bot('bot4', 500), new Bot('bot5', 500)]
+new Jogador('player', 500), new Bot('bot4', 500), new Bot('bot5', 500)]
 let mesa = new Mesa(players, 0)
-window.onload = () => {
-    mesa.setUpHand()
-    drawTable()
-    mesa.playFirsts()
-    drawTable()
+
+window.onload = playFlow
+
+const playFlow = () => {
+    while (mesa.getPlayablePlayersNumber != 1) {
+        mesa.setUpHand()
+        while (mesa.round < 4) {
+            drawTable()
+            mesa.playFirsts()
+            drawTable()
+        }
+    }
 }
 
 const drawTable = () => {
@@ -13,11 +20,11 @@ const drawTable = () => {
         //Adiciona valor para players
         $('#' + player.id).html(player.valor);
         player.cards.forEach((card, index) => {
-            if(card.visibilidade) {
+            if (card.visibilidade) {
                 var img = $(`#${player.id}_card${index}`)
-                if(img) {
+                if (img) {
                     img.attr("src", card.frontImage)
-                } 
+                }
             }
         })
     });
@@ -31,7 +38,7 @@ const loadGame = () => {
             let fileReader = new FileReader()
             fileReader.onload = (load) => {
                 let loadedMesa = JSON.parse(fileReader.result)
-                if(loadedMesa instanceof Mesa) {
+                if (loadedMesa instanceof Mesa) {
                     mesa = loadedMesa
                 } else {
                     console.log("Invalid JSON structure, must be a Mesa type")
@@ -39,7 +46,7 @@ const loadGame = () => {
             }
         } catch (err) {
             console.log("Invalid file extension, must be an .json file")
-        } 
+        }
     })
 }
 
