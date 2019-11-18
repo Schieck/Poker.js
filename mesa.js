@@ -22,7 +22,6 @@ class Mesa {
         if(this.user.playable) {
             mesa.tablePit += this.user.play(this, quit)
         }
-        this.playLast()
     }
 
     playFirsts() {
@@ -88,7 +87,7 @@ class Mesa {
                 player.receiveCards(_.slice(this.deck.cards, 0, 2))
                 _.drop(this.deck.cards, 2)
             })
-        this.tableCards = _.slice(this.deck.cards, 0, 4)
+        this.tableCards = _.slice(this.deck.cards, 0, 5)
     }
 
     moveDealer() {

@@ -5,7 +5,7 @@ class Jogador {
         this.playable = true
     }
 
-    play(mesa, quit) {
+    play(quit) {
         if(quit) {
             this.playable = false
             return 0
