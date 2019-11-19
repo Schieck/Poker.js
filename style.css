@@ -3,37 +3,23 @@ body {
     height: 100vh;
 	background-image: url("http://getwallpapers.com/wallpaper/full/3/2/7/488264.jpg");
 	overflow-x: hidden;
-	overflow-y: hidden;
+	/* overflow-y: hidden; */
 }
 
-div {
-    width: 100%;
-}
-
-d1 {
-	width: 80%;
-}
-
-d2 {
-	width: 40%;
-}
-
-d3 {
-	width: 60%;
-}
-
-img {
+/* img {
   width: 131px;
   height: 200px;
   object-fit: cover;
   display: flex;
   justify-content: flex-start;
-}
+} */
 
 .player_bot {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
+    min-width: 70px;
+    max-width: 70px;
+    min-height: 70px;
+    max-height: 70px;
+    border-radius: 50px;
     box-shadow: 0px 1px 5px black;
     background: rgb(125,119,232);
     background: linear-gradient(90deg, rgba(125,119,232,1) 0%, rgba(162,239,255,1) 100%);
@@ -137,6 +123,16 @@ img {
 .padding {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.alinhar-final{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alinhar-centro{
+  display: flex;
+  justify-content: center;
 }
 
 
