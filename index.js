@@ -75,6 +75,7 @@ const loadGame = () => {
                     console.log("Invalid JSON structure, must be a Mesa type")
                 }
             }
+            fileReader.readAsText(file)
         } catch (err) {
             console.log("Invalid file extension, must be an .json file")
         }
