@@ -14,6 +14,7 @@ const mainPlayFlow = () => {
             mesa.playFirsts()
         } else {
             mesa.nextHand()
+            drawTable()
             mainPlayFlow()
         }
         drawTable()

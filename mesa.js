@@ -1,9 +1,9 @@
 class Mesa {
-    constructor(players, tablePit) {
+    constructor(players, tablePit, gameEvaluateLogic) {
         this.players = players
         this.tablePit = tablePit
         this.round = 1
-        this.gameEvaluateLogic = new GameEvaluateLogic()
+        this.gameEvaluateLogic = gameEvaluateLogic
     }
 
     getPlayablePlayersNumber() {
