@@ -71,6 +71,7 @@ const loadGame = () => {
                 let loadedMesa = JSON.parse(fileReader.result)
                 if (loadedMesa instanceof Mesa) {
                     mesa = loadedMesa
+                    drawTable()
                 } else {
                     console.log("Invalid JSON structure, must be a Mesa type")
                 }
@@ -85,5 +86,4 @@ const loadGame = () => {
 const saveGame = () => {
     let blob = new Blob([JSON.stringify(mesa)])
     saveAs(blob, 'pokerGame.json')
-    drawTable()
 }
