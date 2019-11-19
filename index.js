@@ -1,6 +1,6 @@
 let players = [new Bot('bot1', 500), new Bot('bot2', 500),
 new Jogador('player', 500), new Bot('bot4', 500), new Bot('bot5', 500)]
-let mesa = new Mesa(_.shuffle(players), 0)
+let mesa = new Mesa(_.shuffle(players), 0, new GameEvaluateLogic())
 
 window.onload = () => {
     mesa.setUpHand()
