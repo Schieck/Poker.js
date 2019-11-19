@@ -1,4 +1,4 @@
-class FlushEvaluate {
+class PairEvaluate {
     evaluate(cards) {
 
     }
