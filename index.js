@@ -83,4 +83,5 @@ const loadGame = () => {
 const saveGame = () => {
     let blob = new Blob([JSON.stringify(mesa)])
     saveAs(blob, 'pokerGame.json')
+    drawTable()
 }
