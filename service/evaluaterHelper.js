@@ -28,3 +28,7 @@ const findGroup = (cards, value) => {
     let keys = Object.keys(threegroups).filter(key => threegroups[key].length == value)
     return keys.map(key => group[key])
 }
+
+const getSum = (cards) => {
+    return _.chain(cards).map('value').sum().value()
+}

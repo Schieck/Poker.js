@@ -44,8 +44,8 @@ class Mesa {
             this.distribuitsEarings()
         } else {
             _.find(this.tableCards, card => !card.visibilidade).visibilidade = true
-            this.round++
         }
+        this.round++
     }
 
     distribuitsEarings(){

@@ -20,7 +20,7 @@ body {
   position: relative;
   margin-top: 400px; 
   margin-left: 500px;
-  justify-content: flex-end;
+  z-index: 5;
 }
 
 .bot-1 {

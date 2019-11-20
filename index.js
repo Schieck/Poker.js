@@ -4,17 +4,16 @@ let mesa = new Mesa(_.shuffle(players), 0)
 
 window.onload = () => {
     mesa.setUpHand()
-    drawTable()
     mainPlayFlow()
 }
 
 const mainPlayFlow = () => {
+    drawTable()
     if (mesa.getPlayablePlayersNumber() != 1) {
         if (mesa.round <= 4) {
             mesa.playFirsts()
         } else {
             mesa.nextHand()
-            drawTable()
             mainPlayFlow()
         }
         drawTable()
@@ -76,6 +75,7 @@ fileInput.addEventListener('change', () => {
             let loadedMesa = JSON.parse(fileReader.result)
             mesa = loadedMesa
             drawTable()
+            $('#ModalLongoExemplo').modal('hide')
         }
         fileReader.readAsText(file)
     } catch (err) {
