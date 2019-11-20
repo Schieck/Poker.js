@@ -74,12 +74,8 @@ fileInput.addEventListener('change', () => {
         let fileReader = new FileReader()
         fileReader.onload = (load) => {
             let loadedMesa = JSON.parse(fileReader.result)
-            if (loadedMesa instanceof Mesa) {
-                mesa = loadedMesa
-                drawTable()
-            } else {
-                console.log("Invalid JSON structure, must be a Mesa type")
-            }
+            mesa = loadedMesa
+            drawTable()
         }
         fileReader.readAsText(file)
     } catch (err) {
