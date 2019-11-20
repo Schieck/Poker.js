@@ -1,4 +1,4 @@
-const gameEvaluateLogic = new gameEvaluateLogic([])
+const gameEvaluateLogic = new GameEvaluateLogic([])
 class Mesa {
     constructor(players, tablePit) {
         this.players = players
