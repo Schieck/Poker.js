@@ -20,7 +20,7 @@ class Mesa {
 
     userAction(quit) {
         if(this.user.playable) {
-            mesa.tablePit += this.user.play(this, quit)
+            mesa.tablePit += this.user.play(quit)
         }
     }
 
@@ -36,9 +36,8 @@ class Mesa {
 
     turnNextCards() {
         if (this.round == 1) {
-            this.tableCards = _.map(_.take(this.tableCards, 3), card => {
+            _.forEach(_.take(this.tableCards, 3), card => {
                 card.visibilidade = true
-                return card
             })
         } else if (this.round == 4) {
             this.distribuitsEarings()

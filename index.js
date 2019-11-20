@@ -13,8 +13,7 @@ const mainPlayFlow = () => {
         if (mesa.round <= 4) {
             mesa.playFirsts()
         } else {
-            mesa.nextHand()
-            mainPlayFlow()
+            $('#nextHand').css('display', 'block')
         }
         drawTable()
     } else {
@@ -23,6 +22,12 @@ const mainPlayFlow = () => {
         let restart = confirm("Want to restart the game?")
         if (restart) location.reload()
     }
+}
+
+const nextHand = () => {
+    $('#nextHand').css('display', 'none')
+    mesa.nextHand()
+    mainPlayFlow()
 }
 
 const userPlay = (quit) => {
@@ -37,7 +42,12 @@ const drawTable = () => {
     mesa.players.forEach(player => {
         $(`#${player.id}_pit`).html(player.valor);
         player.cards.forEach((card, index) => {
-            updateVisibility($(`#${player.id}_card${index}`), card)
+            let card = $(`#${player.id}_card${index}`)
+            if(player.playable) {
+                card.css('display', 'none')
+            } else {
+                updateVisibility(card, card)
+            }
         })
     });
 }
