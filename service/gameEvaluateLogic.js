@@ -1,5 +1,4 @@
 class GameEvaluateLogic {
-    constructor(){}
     constructor(evaluators) {
         this.evaluators = evaluators
     }
