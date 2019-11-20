@@ -1,9 +1,9 @@
+const gameEvaluateLogic = new gameEvaluateLogic([])
 class Mesa {
-    constructor(players, tablePit, gameEvaluateLogic) {
+    constructor(players, tablePit) {
         this.players = players
         this.tablePit = tablePit
         this.round = 1
-        this.gameEvaluateLogic = gameEvaluateLogic
     }
 
     getPlayablePlayersNumber() {
