@@ -1,128 +1,9 @@
 body {
     width: 100vw;
     height: 100vh;
-  background-image: url("http://getwallpapers.com/wallpaper/full/3/2/7/488264.jpg");
+  background-image: url("Textures/background.jpg");
   overflow-x: hidden;
 	/* overflow-y: hidden; */
-}
-
-/* img {
-  width: 131px;
-  height: 200px;
-  object-fit: cover;
-  display: flex;
-  justify-content: flex-start;
-} */
-
-.player_bot {
-    min-width: 70px;
-    max-width: 70px;
-    min-height: 70px;
-    max-height: 70px;
-    border-radius: 50px;
-    box-shadow: 0px 1px 5px black;
-    background: rgb(125,119,232);
-    background: linear-gradient(90deg, rgba(125,119,232,1) 0%, rgba(162,239,255,1) 100%);
-}
-
-.user {
-    background: rgb(157,33,33);
-    background: linear-gradient(90deg, rgba(157,33,33,1) 0%, rgba(209,162,255,1) 100%);
-}
-
-.table {
-  height:400px;
-  width: 100vh;
-  background: rgb(14,71,4);
-  background: linear-gradient(90deg, rgba(14,71,4,1) 0%, rgba(8,43,2,1) 100%);
-  border: 15px solid rgb(99, 56, 1);
-  border-radius: 20%;
-  box-shadow: 0px 1px 5px black;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.table_cards{
-  width: 43px;
-  height: 65px;
-  object-fit: cover;
-  display: flex;
-  justify-content: flex-start;	
-}
-
-.bot_card {
-	width: 26px;
-	height: 40px;
-	object-fit: cover;
-	display: flex;
-	justify-content: flex-start;	
-	image-orientation: from-image;
-}
-
-.player_card {
-  width: 131px;
-  height: 200px;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.right{
-    display:flex;
-    align-items: center;
-	justify-content: flex-end;
-}
-
-.left{
-    display:flex;
-    align-items: center;
-	justify-content: flex-start;
-}
-
-.topRight{
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-}
-
-.top_left{
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.button {
-	height: 100px;
-	width: 200px
-	font-size: 20px;
-	display: flex;
-	justify-content: center;
-	align-content: center;
-
-}
-
-.menuButton{
-	height: 70px;
-	width: 80px;
-	padding: 10px;
-	font-size: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-
-}
-.padding {
-    padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 .alinhar-final{
@@ -135,10 +16,188 @@ body {
   justify-content: center;
 }
 
+.call-fold{
+  position: relative;
+  margin-top: 400px; 
+  margin-left: 500px;
+  justify-content: flex-end;
+}
 
+.bot-1 {
+ z-index: 1;
+ height: 230px;
+ position: absolute;
+ margin-top: 130px;
+ margin-left: -305px;
+}
 
-
+.bot-2 {
+  z-index: 1; 
+  height: 230px; 
+  position: absolute; 
+  margin-top: -40px; 
+  margin-left: -160px; 
+  transform: rotate(90deg);
+}
  
+.bot-4 {
+  z-index: 1; 
+  height: 230px; 
+  position: absolute; 
+  margin-top: -40px; 
+  margin-left: 62px; 
+  transform: rotate(90deg);
+}
 
+.bot-5 {
+  z-index: 1; 
+  height: 230px; 
+  position: absolute; 
+  margin-top: 90px; 
+  margin-left: 235px; 
+  transform: rotate(180deg);
+}
 
+.table {
+  height: 600px; 
+  width: 900px;
+  z-index: 2; 
+  position: absolute;
+}
 
+.table-card-0 {
+  z-index:3; 
+  height: 50px; 
+  position: absolute; 
+  margin-top: 195px;  
+  margin-left: -120px;
+}
+
+.table-card-1 {
+  z-index:3; 
+  height: 50px; 
+  position: absolute; 
+  margin-top: 195px; 
+  margin-left: -86px;
+}
+
+.table-card-2 {
+  z-index:3; 
+  height: 50px; 
+  position: absolute; 
+  margin-top: 195px; 
+  margin-left: -52px;
+}
+
+.table-card-3 {
+  z-index:3; 
+  height: 50px; 
+  position: absolute; 
+  margin-top: 195px; 
+  margin-left: 0px;
+}
+
+.table-card-4 {
+  z-index:3; 
+  height: 50px; 
+  position: absolute; 
+  margin-top: 195px; 
+  margin-left: 55px;
+}
+
+.bot-1-card-0 {
+  z-index: 3;
+  height: 40px;
+  position: absolute;
+  margin-top: 215px;
+  margin-left: -250px;
+  transform: rotate(90deg);
+}
+
+.bot-1-card-1{
+  z-index: 3; 
+  height: 40px; 
+  position: absolute; 
+  margin-top: 185px; 
+  margin-left: -250px; 
+  transform: rotate(90deg);
+}
+
+.bot-2-card-0 {
+  z-index: 3; 
+  height: 40px; 
+  position: absolute; 
+  margin-top: 110px; 
+  margin-left: -155px;
+}
+
+.bot-2-card-1 {
+  z-index: 3; 
+  height: 40px; 
+  position: absolute; 
+  margin-top: 110px; 
+  margin-left: -125px;
+}
+
+.bot-4-card-0 {
+  z-index: 3; 
+  height: 40px; 
+  position: absolute; 
+  margin-top: 110px; 
+  margin-left: 70px;
+}
+
+.bot-4-card-1 {
+  z-index: 3; 
+  height: 40px; 
+  position: absolute; 
+  margin-top: 110px; 
+  margin-left: 100px;
+}
+
+.bot-5-card-0 {
+  z-index: 3; 
+  height: 40px; 
+  position: absolute; 
+  margin-top: 215px; 
+  margin-left: 187.5px; 
+  transform: rotate(90deg);
+}
+
+.bot-5-card-1 {
+  z-index: 3; 
+  height: 40px; 
+  position: absolute; 
+  margin-top: 185px; 
+  margin-left: 187.5px; 
+  transform: rotate(90deg);
+}
+
+.player-card-0 {
+  z-index: 3; 
+  height: 120px; 
+  position: absolute; 
+  margin-top: 300px; 
+  margin-left: -40x;
+}
+
+.player-card-1 {
+  z-index: 3; 
+  height: 120px; 
+  position: absolute; 
+  margin-top: 300px; 
+  margin-left: -80px;
+}
+
+input[type='file'] {
+  display: none
+}
+
+label {
+  background-color: #3498db;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
