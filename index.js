@@ -1,5 +1,5 @@
-let players = [new Bot('bot1', 500), new Bot('bot2', 500),
-new Jogador('player', 500), new Bot('bot4', 500), new Bot('bot5', 500)]
+let user = new Jogador('player', 500)
+let players = [new Bot('bot1', 500), new Bot('bot2', 500), user, new Bot('bot4', 500), new Bot('bot5', 500)]
 let mesa = new Mesa(_.shuffle(players), 0)
 
 window.onload = () => {
@@ -42,11 +42,11 @@ const drawTable = () => {
     mesa.players.forEach(player => {
         $(`#${player.id}_pit`).html(player.valor);
         player.cards.forEach((card, index) => {
-            let card = $(`#${player.id}_card${index}`)
+            let cardElement = $(`#${player.id}_card${index}`)
             if(player.playable) {
-                card.css('display', 'none')
+                cardElement.css('display', 'none')
             } else {
-                updateVisibility(card, card)
+                updateVisibility(cardElement, card)
             }
         })
     });
