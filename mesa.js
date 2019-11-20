@@ -52,6 +52,7 @@ class Mesa {
         this.findPlayablePlayers(this.players).forEach(player => player.setVisibleCards(true))
         let winner = gameEvaluateLogic.findWinner(this.tableCards, this.findPlayablePlayers(this.players))
         winner.receiveChips(this.tablePit)
+        this.tablePit = 0
     }
 
     nextHand() {
