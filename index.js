@@ -44,7 +44,7 @@ const drawTable = () => {
 }
 
 const flipTableCards = () => {
-    let tableCards = mesa.cards
+    let tableCards = mesa.tableCards
     let flop = _.slice(tableCards, 0, 3)
     let turn = _.slice(tableCards, 3, 4)[0]
     let river = _.slice(tableCards, 4, 5)[0]
