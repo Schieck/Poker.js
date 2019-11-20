@@ -1,42 +1,36 @@
 class Mesa {
-    constructor(players, tablePit, deck) {
+    constructor(players, tablePit, gameEvaluateLogic) {
         this.players = players
         this.tablePit = tablePit
-        this.deck = deck
-        this.user = user
         this.round = 1
+        this.gameEvaluateLogic = gameEvaluateLogic
+    }
+
+    getPlayablePlayersNumber() {
+        return this.findPlayablePlayers(this.players)
     }
 
     setUpHand() {
         this.distributeCards()
-        this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof User))
-        this.user = _.find(this.players, player => player instanceof User)
-        this.lastPlayers = _.takeRightWhile(this.players, player => !(player instanceof User))
+        this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof Jogador))
+        this.user = _.find(this.players, player => player instanceof Jogador)
+        this.lastPlayers = _.takeRightWhile(this.players, player => !(player instanceof Jogador))
 
     }
 
     userAction(quit) {
-        this.user.play(this, quit)
-        this.playLast()
+        if(this.user.playable) {
+            mesa.tablePit += this.user.play(this, quit)
+        }
     }
 
     playFirsts() {
-        /*this.findPlayablePlayers(this.firstPlayers).forEach(player => {
-            setTimeout(() => {
-                player.play(this) 
-            }, 2000);
-        })*/
-        this.findPlayablePlayers(this.firstPlayers).forEach(player => player.play(this))
+        this.playTurn(this.firstPlayers)
     }
 
 
     playLast() {
-        /*this.findPlayablePlayers(this.lastPlayers).forEach(player => {
-            setTimeout(() => {
-                player.play(this) 
-            }, 2000);
-        })*/
-        this.findPlayablePlayers(this.lastPlayers).forEach(player => player.play(this))
+        this.playTurn(this.lastPlayers)
         this.turnNextCards()
     }
 
@@ -46,12 +40,23 @@ class Mesa {
                 card.visibilidade = true
                 return card
             })
+        } else if (this.round == 4) {
+            this.distribuitsEarings()
+        } else {
+            _.find(this.tableCards, card => !card.visibilidade).visibilidade = true
+            this.round++
         }
-        _.find(this.tableCards, card => !card.visibilidade).visibilidade = true
+    }
+
+    distribuitsEarings(){
+        this.findPlayablePlayers(this.players).forEach(player => player.setVisibleCards(true))
+        let winner = gameEvaluateLogic.findWinner(this.tableCards, this.findPlayablePlayers(this.players))
+        winner.receiveChips(this.tablePit)
+        this.tablePit = 0
     }
 
     nextHand() {
-        this.deck.shuffle()
+        this.cleanTable()
         this.moveDealer()
         this.setUpHand()
     }
@@ -60,13 +65,30 @@ class Mesa {
         this.tablePit += _.sum(_.slice(this.players, 0, 1), player => player.getBet())
     }
 
+    playTurn(players) {
+        this.findPlayablePlayers(players).forEach(player => {
+            mesa.tablePit += player.play()
+        })
+    }
+
+    cleanTable() {
+        this.round = 1
+        this.tableCards = []
+        this.players.forEach(player => {
+            player.playable = player.valor > 0
+            player.cards = []
+        })
+    }
+
     distributeCards() {
-        [0, this.players.length - 1].forEach(loop =>
-            this.players.forEach((player, index) =>
-                player.tableCards.push(this.deck[index + loop])
-            )
-        )
-        this.tableCards = _.slice(this.deck, this.players.length * 2, this.players.length * 2 + 5)
+        this.deck = new Deck()
+        this.deck.shuffle()
+        this.findPlayablePlayers(this.players)
+            .forEach((player) => {
+                player.receiveCards(_.slice(this.deck.cards, 0, 2))
+                _.drop(this.deck.cards, 2)
+            })
+        this.tableCards = _.slice(this.deck.cards, 0, 5)
     }
 
     moveDealer() {
