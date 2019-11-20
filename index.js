@@ -27,7 +27,7 @@ const mainPlayFlow = () => {
 }
 
 const userPlay = (quit) => {
-    mesa.userAction(quit)
+    mesa.userAction(!quit)
     mesa.playLast()
     mainPlayFlow()
 }
