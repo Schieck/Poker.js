@@ -71,7 +71,6 @@ const fileInput = document.getElementById("fileInput")
 fileInput.addEventListener('change', () => {
     let file = fileInput.files[0]
     try {
-        loadGame()
         let fileReader = new FileReader()
         fileReader.onload = (load) => {
             let loadedMesa = JSON.parse(fileReader.result)
