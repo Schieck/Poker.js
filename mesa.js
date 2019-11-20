@@ -81,14 +81,15 @@ class Mesa {
     }
 
     distributeCards() {
-        this.deck = new Deck()
-        this.deck.shuffle()
+        let deck = new Deck()
+        deck.shuffle()
         this.findPlayablePlayers(this.players)
             .forEach((player) => {
-                player.receiveCards(_.slice(this.deck.cards, 0, 2))
-                _.drop(this.deck.cards, 2)
+                player.receiveCards(_.slice(deck.cards, 0, 2))
+                deck.cards.shift()
+                deck.cards.shift()
             })
-        this.tableCards = _.slice(this.deck.cards, 0, 5)
+        this.tableCards = _.slice(deck.cards, 0, 5)
     }
 
     moveDealer() {

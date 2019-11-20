@@ -9,8 +9,8 @@ window.onload = () => {
 }
 
 const mainPlayFlow = () => {
-    if(mesa.getPlayablePlayersNumber != 1) {
-        if(mesa.round <= 4) {
+    if (mesa.getPlayablePlayersNumber() != 1) {
+        if (mesa.round <= 4) {
             mesa.playFirsts()
         } else {
             mesa.nextHand()
@@ -22,7 +22,7 @@ const mainPlayFlow = () => {
         let winner = _.head(mesa.players)
         alert(`Winner is: ${winner.id} with the total amount of ${winner.valor}`)
         let restart = confirm("Want to restart the game?")
-        if(restart) location.reload()
+        if (restart) location.reload()
     }
 }
 
@@ -52,38 +52,38 @@ const flipTableCards = () => {
         let flopCard = $(`#flop_${index}`)
         updateVisibility(flopCard, card)
     })
-    updateVisibility($('#turn', turn))
-    updateVisibility($('#river', river))
+    updateVisibility($('#turn'), turn)
+    updateVisibility($('#river'), river)
 }
 
 const updateVisibility = (imgElemt, card) => {
-    if(card.visibilidade) imgElemt.attr('src', card.frontImage)
+    if (card.visibilidade) imgElemt.attr('src', card.frontImage)
     else imgElemt.attr('src', card.backImage)
-}
-
-const loadGame = () => {
-    let fileInput = document.getElementById("fileInput")
-    fileInput.addEventListener('change', () => {
-        let file = fileInput.files[0]
-        try {
-            let fileReader = new FileReader()
-            fileReader.onload = (load) => {
-                let loadedMesa = JSON.parse(fileReader.result)
-                if (loadedMesa instanceof Mesa) {
-                    mesa = loadedMesa
-                    drawTable()
-                } else {
-                    console.log("Invalid JSON structure, must be a Mesa type")
-                }
-            }
-            fileReader.readAsText(file)
-        } catch (err) {
-            console.log("Invalid file extension, must be an .json file")
-        }
-    })
 }
 
 const saveGame = () => {
     let blob = new Blob([JSON.stringify(mesa)])
     saveAs(blob, 'pokerGame.json')
 }
+
+
+const fileInput = document.getElementById("fileInput")
+fileInput.addEventListener('change', () => {
+    let file = fileInput.files[0]
+    try {
+        loadGame()
+        let fileReader = new FileReader()
+        fileReader.onload = (load) => {
+            let loadedMesa = JSON.parse(fileReader.result)
+            if (loadedMesa instanceof Mesa) {
+                mesa = loadedMesa
+                drawTable()
+            } else {
+                console.log("Invalid JSON structure, must be a Mesa type")
+            }
+        }
+        fileReader.readAsText(file)
+    } catch (err) {
+        console.log("Invalid file extension, must be an .json file")
+    }
+})

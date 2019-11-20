@@ -1,7 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
-  background-image: url("Textures/background.jpg");
+  background-image: url("textures/background.jpg");
   overflow-x: hidden;
 	/* overflow-y: hidden; */
 }
