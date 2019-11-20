@@ -26,32 +26,38 @@
     <div class="row">
         <div class="col-md-12 alinhar-centro" style="margin-left:32.5px;">
             <!-- Mesa de poker -->
-            <img src="./textures/MesaPokersemcartas.png" style="height: 600px; z-index: 2; position: absolute;" alt="">
+            <img src="./textures/MesaPokersemcartas.png" class="table" alt="">
             <!-- Cadeira Bot 1 e cartas 0 e 1 -->
-            <img src="./textures/cadeiraPoker.png"style="z-index: 1; height: 230px; position: absolute; margin-top: 130px;margin-left: -305px;" id="bot1_pit">
-            <img src="./textures/cards/purple_back.png" style="z-index: 3; height: 40px; position: absolute; margin-top: 215px; margin-left: -250px; transform: rotate(90deg);" id="bot1_card0">
-            <img src="./textures/cards/purple_back.png" style="z-index: 3; height: 40px; position: absolute; margin-top: 185px; margin-left: -250px; transform: rotate(90deg);" id="bot1_card1">
+            <img src="./textures/cadeiraPoker.png" class="bot-1" id="bot1_pit">
+            <img src="./textures/cards/purple_back.png" class="bot-1-card-0" id="bot1_card0">
+            <img src="./textures/cards/purple_back.png" class="bot-1-card-1" id="bot1_card1">
             <!-- Cadeira Bot 2 e cartas 0 e 1 -->
-            <img src="./textures/cadeiraPoker.png"style="z-index: 1; height: 230px; position: absolute; margin-top: -40px; margin-left: -160px; transform: rotate(90deg);" id="bot2_pit">
-            <img src="./textures/cards/purple_back.png" style="z-index: 3; height: 40px; position: absolute; margin-top: 110px; margin-left: -155px;" id="bot2_card0">
-            <img src="./textures/cards/purple_back.png" style="z-index: 3; height: 40px; position: absolute; margin-top: 110px; margin-left: -125px;" id="bot2_card1">
+            <img src="./textures/cadeiraPoker.png" class="bot-2" id="bot2_pit">
+            <img src="./textures/cards/purple_back.png" class="bot-2-card-0" id="bot2_card0">
+            <img src="./textures/cards/purple_back.png" class="bot-2-card-1" id="bot2_card1">
             <!-- Player e cartas 0 e 1 -->
-            <img id="img1" src="textures/cards/purple_back.png" style="z-index: 3; height: 120px; position: absolute; margin-top: 300px; margin-left: -40x;" alt="userCard">
-			<img id="img2" src="textures/cards/purple_back.png"  style="z-index: 3; height: 80px; position: absolute; margin-top: 300px; margin-left: -80px;" alt="userCard">
+            <img id="player-card0" src="textures/cards/purple_back.png" class="player-card-0" alt="userCard">
+			<img id="player-card1" src="textures/cards/purple_back.png"  class="player-card-1" alt="userCard">
             <!-- Cadeira Bot 4 e cartas 0 e 1 -->
-            <img src="./textures/cadeiraPoker.png"style="z-index: 1; height: 230px; position: absolute; margin-top: -40px; margin-left: 62px; transform: rotate(90deg);" id="bot4_pit">
-            <img src="./textures/cards/purple_back.png" style="z-index: 3; height: 40px; position: absolute; margin-top: 110px; margin-left: 70px;" id="bot4_card0">
-            <img src="./textures/cards/purple_back.png" style="z-index: 3; height: 40px; position: absolute; margin-top: 110px; margin-left: 100px;" id="bot4_card1">
+            <img src="./textures/cadeiraPoker.png" class="bot-4" id="bot4_pit">
+            <img src="./textures/cards/purple_back.png" class="bot-4-card-0" id="bot4_card0">
+            <img src="./textures/cards/purple_back.png" class="bot-4-card-1" id="bot4_card1">
             <!-- Cadeira Bot 5 e cartas 0 e 1 -->
-            <img src="./textures/cadeiraPoker.png"style="z-index: 1; height: 230px; position: absolute; margin-top: 90px; margin-left: 235px; transform: rotate(180deg);" id="bot5_pit">
-            <img src="./textures/cards/purple_back.png" style="z-index: 3; height: 40px; position: absolute; margin-top: 215px; margin-left: 187.5px; transform: rotate(90deg);" id="bot1_card0">
-            <img src="./textures/cards/purple_back.png" style="z-index: 3; height: 40px; position: absolute; margin-top: 185px; margin-left: 187.5px; transform: rotate(90deg);" id="bot1_card1">
+            <img src="./textures/cadeiraPoker.png" class="bot-5" id="bot5_pit">
+            <img src="./textures/cards/purple_back.png" class="bot-5-card-0" id="bot1_card0">
+            <img src="./textures/cards/purple_back.png" class="bot-5-card-1" id="bot1_card1">
             <!-- Cartas da mesa -->
-            <img src="./textures/cards/purple_back.png" style="z-index:3; height: 50px; position: absolute; margin-top: 195px;  margin-left: -120px;" id="flop_0">
-            <img src="./textures/cards/purple_back.png" style="z-index:3; height: 50px; position: absolute; margin-top: 195px; margin-left: -86px;" id=flop_1>
-            <img src="./textures/cards/purple_back.png" style="z-index:3; height: 50px; position: absolute; margin-top: 195px; margin-left: -52px;" id="flop_2">
-            <img src="./textures/cards/purple_back.png" style="z-index:3; height: 50px; position: absolute; margin-top: 195px; margin-left: 0px;" id="turn">
-            <img src="./textures/cards/purple_back.png" style="z-index:3; height: 50px; position: absolute; margin-top: 195px; margin-left: 55px;" id="river">
+            <img src="./textures/cards/purple_back.png" class="table-card-0" id="flop_0">
+            <img src="./textures/cards/purple_back.png" class="table-card-1" id=flop_1>
+            <img src="./textures/cards/purple_back.png" class="table-card-2" id="flop_2">
+            <img src="./textures/cards/purple_back.png" class="table-card-3" id="turn">
+            <img src="./textures/cards/purple_back.png" class="table-card-4" id="river">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 call-fold">
+            <button onclick="userPlay(true)" type="button" class="btn btn-success">Call</button>
+            <button onclick="userPlay(false)" type="button" class="btn btn-danger">Fold</button>
         </div>
     </div>
     
@@ -60,133 +66,23 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="TituloModalLongoExemplo">VITOR CADÊ VOCÊ EU VIM AQUI SÓ PRA TE VEEER</h5>
+                <h5 class="modal-title" id="TituloModalLongoExemplo">Menu do trabalho</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  ...
+                  O que você deseja fazer?
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                  <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                    <label for="fileInput">Carregar Jogo</label>
+                  <input type="file" id="fileInput">
+                  <button onclick="saveGame()" type="button" class="btn btn-primary">Salvar mudanças</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="row padding">    
-        <div class="col-md-3 center">
-            <div id="bot1" class="player_bot">
-            </div>
-        </div>
 
-        <div class="col-md-3 center">
-            <div id="bot2" class="player_bot">
-            </div>
-        </div>
-
-        <div class="col-md-3 menuButton">
-			<button type="button" class="btn btn-warning">Menu</button>
-		</div>
-    </div>	
-
-    <div class="row">
-
-        <div class="col-md-3 right">
-            <div id="bot3" class="player_bot">
-            </div>
-        </div>
-
-        <div class="col-md-6 center">
-            <div id="table" class="table">
-				<b1 id="table_row">
-					<div class="row" style="margin-bottom: 10%">
-
-						<d2 class="col-md-5 center">
-						<img class="bot_card" src="textures/cards/purple_back.png" alt="bot_card">
-						<img class="bot_card" src="textures/cards/purple_back.png" alt="bot_card">
-						</d2>
-
-						<d3 class="col-md-2 center"></d3>
-
-						<d3 class="col-md-5 center">
-						<img class="bot_card" src="textures/cards/purple_back.png" alt="bot_card">
-						<img class="bot_card" src="textures/cards/purple_back.png" alt="bot_card">
-						</d3>
-					
-					</div>
-					<div  class="row padding">
-						
-						<d2 class="col-sm-4 left">
-						<img class="bot_card" src="textures/cards/purple_back.png" alt="bot_card">
-						<img class="bot_card" src="textures/cards/purple_back.png" alt="bot_card">
-						</d2>
-
-						<d3 class="col-sm center">
-							<img id="first" class="table_cards" src="textures/cards/purple_back.png" alt="table_card">
-							<img id="first" class="table_cards" src="textures/cards/purple_back.png" alt="table_card">
-							<img id="first" class="table_cards" src="textures/cards/purple_back.png" alt="table_card">
-						</d3>
-
-						<d3 class="col-sm center">
-							<img id="second" class="table_cards" src="textures/cards/purple_back.png" alt="table_card">
-						</d3>
-
-						<d3 class="col-sm center">
-							<img id="third" class="table_cards" src="textures/cards/purple_back.png" alt="table_card">
-						</d3>
-
-						<d3 class="col-sm-3 right">
-						<img class="bot_card" src="textures/cards/purple_back.png" alt="bot_card">
-						<img class="bot_card" src="textures/cards/purple_back.png" alt="bot_card">
-						</d3>
-
-					</div>
-					<div class="row" style="margin-top: 10%">
-						<d2 class="col-md bottom">
-							<button type="button" class="btn btn-danger">Fold</button>
-							<button type="button" class="btn btn-success">Bet</button>
-						</d2>
-
-						<d3 class="col-md center"></d3>
-
-						<d3 class="col-md center"></d3>
-					
-					</div>
-
-				</b1>
-			</div>
-        </div>
-
-        <div class="col-md-3 left">
-            <div id="bot3" class="player_bot">
-            </div>
-        </div>
-
-    </div>
-
-    <d1 class="row">
-
-        <d1 class="col-sm bottom button">
-			<button type="button">Leave</button>
-			<button type="button">Bind</button>
-		</d1>
-
-        <d1 class="col-md topRight">
-            <d1 id="player" class="player_bot user"></d1>
-        </d1>
-
-		<d1 class="col-md player_card">
-			<img id="player_card0" class="top"  src="textures/cards/purple_back.png" alt="userCard">
-			<img id="player_card1" class="top"  src="textures/cards/purple_back.png" alt="userCard">
-		</d1> 
-
-        <d1 class="col-md top_left">
-			 <d1 id="bot5" class="player_bot"></d1>
-		</d1>
-
-    </d1> -->
 
     <!-- Game Script -->
     <script src="lodash.js"></script>
