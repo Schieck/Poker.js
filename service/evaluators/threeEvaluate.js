@@ -1,15 +1,20 @@
 class Threevaluate {
     evaluate(cards) {
-        let threegroup = _.groupBy(cards, 'valor');
-        let three = threegroup.find(threegroup, function(group){return group.lenght>=3})
-        if(three.lenght > 0){
-            return true;
-        }
+        let newCards = transformAsValueIn(cards, 30)
+        let triplets = findGroup(newCards, 3)[0]
+        return triplets.length == 3
     }
 
     receivePoints(cards) {
-        if(this.evaluate(cards)){
-            return 5000;
-        }
+        let newCards = transformAsValueIn(cards, 30)
+        let triplets = findGroup(newCards, 3)[0]
+        let remainings = _.sort(this.getRemainings(newCards, triplets), ['value']).reverse()
+        return _.chain(triplets).map('value').sum().value() * 10 +
+            _.chain(remainings).take(2).map('value').sum().value() +
+            5000
+    }
+
+    getRemainings(cards, triplets) {
+        return _.differenceWith(cards, triplets, _.isEqual)
     }
 }
