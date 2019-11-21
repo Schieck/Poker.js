@@ -1,4 +1,4 @@
-class Threevaluate {
+class ThreeEvaluate {
     evaluate(cards) {
         let newCards = transformAsValueIn(cards, 30)
         let triplets = findGroup(newCards, 3)[0]

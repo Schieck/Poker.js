@@ -1,4 +1,15 @@
-const gameEvaluateLogic = new GameEvaluateLogic([])
+const gameEvaluateLogic = new GameEvaluateLogic([
+    new RoyalStraitFlushEvaluate(),
+    new StraitFlushEvaluate(),
+    new FourEvaluate(),
+    new FullHouseEvaluate(),
+    new FlushEvaluate(),
+    new StraitEvaluate(),
+    new ThreeEvaluate(),
+    new TwoPairEvaluate(),
+    new PairEvaluate(),
+    new HigherCardEvaluate()
+])
 class Mesa {
     constructor(players, tablePit) {
         this.players = players
