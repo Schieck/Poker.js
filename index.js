@@ -85,6 +85,11 @@ const saveGame = () => {
 }
 
 
+const reset = () => {
+    location.reload()   
+}
+
+
 const fileInput = document.getElementById("fileInput")
 fileInput.addEventListener('change', () => {
     let file = fileInput.files[0]
