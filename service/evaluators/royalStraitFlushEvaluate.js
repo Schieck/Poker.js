@@ -1,15 +1,12 @@
 class RoyalStraitFlushEvaluate {
     evaluate(cards) {
-        let copied = _.cloneDeep(cards)
-        let ordered = _.chain(copied).each(card => {
-            card.value = card.value == 1 ? 14 : card.value
-        }).value()
-        let naipe
-        let finalLentgh = _.takeRightWhile(ordered, (card => {
-            naipe = naipe || card.naipe
-            return card.value >= 10 && card.naipe == naipe
-        })).length
-        return finalLentgh == 5
+        let possibleRoyalSequence = _.take(_.sort(transformAsValueIn(cards, 14), 'value').reverse(), 5)
+        if(possibleRoyalSequence[0].value == 14) {
+            let sequence = _.takeWhile(_.slice(possibleRoyalSequence, 1, 5), (card, index) => {
+                return card.value == possibleRoyalSequence[index - 1].value + 1
+            })
+            return sequence.length == 5 && hasSameNaipe(sequence)
+        } return false
     }
 
     receivePoints(cards) {
