@@ -71,42 +71,42 @@ body {
 
 .table-card-0 {
   z-index:3; 
-  height: 50px; 
+  height: 75px; 
   position: absolute; 
   margin-top: 195px;  
-  margin-left: -120px;
+  margin-left: -163px;
 }
 
 .table-card-1 {
   z-index:3; 
-  height: 50px; 
+  height: 75px; 
   position: absolute; 
   margin-top: 195px; 
-  margin-left: -86px;
+  margin-left: -112px;
 }
 
 .table-card-2 {
   z-index:3; 
-  height: 50px; 
+  height: 75px; 
   position: absolute; 
   margin-top: 195px; 
-  margin-left: -52px;
+  margin-left: -62px;
 }
 
 .table-card-3 {
   z-index:3; 
-  height: 50px; 
+  height: 75px; 
   position: absolute; 
   margin-top: 195px; 
-  margin-left: 0px;
+  margin-left: 6px;
 }
 
 .table-card-4 {
   z-index:3; 
-  height: 50px; 
+  height: 75px; 
   position: absolute; 
   margin-top: 195px; 
-  margin-left: 55px;
+  margin-left: 75px;
 }
 
 .bot-1-card-0 {
@@ -182,7 +182,7 @@ body {
   height: 120px; 
   position: absolute; 
   margin-top: 300px; 
-  margin-left: -40x;
+  margin-left: -60px;
 }
 
 .player-card-1 {
@@ -190,7 +190,7 @@ body {
   height: 120px; 
   position: absolute; 
   margin-top: 300px; 
-  margin-left: -80px;
+  margin-left: -140px;
 }
 
 input[type='file'] {

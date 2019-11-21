@@ -53,13 +53,11 @@
             <img src="./textures/cards/purple_back.png" class="table-card-2" id="flop_2">
             <img src="./textures/cards/purple_back.png" class="table-card-3" id="turn">
             <img src="./textures/cards/purple_back.png" class="table-card-4" id="river">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 call-fold">
-            <button id='nextHand' onclick="nextHand()" type="button", class="btn btn-primary">Próxima Mão</button>
-            <button onclick="userPlay(false)" type="button" class="btn btn-danger">Fold</button>
-            <button onclick="userPlay(true)" type="button" class="btn btn-success">Call</button>
+            <div style="z-index: 4; margin-top: 375px; margin-left: 200px">
+                <button id='nextHand' onclick="nextHand()" type="button" class="btn btn-primary">Próxima Mão</button>
+                <button onclick="userPlay(false)" type="button" class="btn btn-danger">Fold</button>
+                <button onclick="userPlay(true)" type="button" class="btn btn-success">Call</button>
+            </div>
         </div>
     </div>
 
