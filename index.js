@@ -52,7 +52,7 @@ const drawTable = () => {
         $(`#${player.id}_pit`).html(player.valor);
         player.cards.forEach((card, index) => {
             let cardElement = $(`#${player.id}_card${index}`)
-            if (!player.playable || player.id != 'player') {
+            if (!player.playable && player.id != 'player') {
                 cardElement.css('display', 'none')
             } else {
                 updateVisibility(cardElement, card)
