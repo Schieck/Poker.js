@@ -12,22 +12,31 @@ const mainPlayFlow = () => {
     if (mesa.getPlayablePlayersNumber() != 1) {
         if (mesa.round <= 4) {
             mesa.playFirsts()
+            if (!user.playable) {
+                mesa.playLast()
+                mainPlayFlow()
+            }
         } else {
             $('#nextHand').css('display', 'block')
         }
         drawTable()
     } else {
-        let winner = _.head(mesa.players)
-        alert(`Winner is: ${winner.id} with the total amount of ${winner.valor}`)
-        let restart = confirm("Want to restart the game?")
-        if (restart) location.reload()
+        alert(`Parabéns, você ganhou... :)`)
+        alert("Reiniciando o jogo")
+        location.reload()
     }
 }
 
 const nextHand = () => {
-    $('#nextHand').css('display', 'none')
-    mesa.nextHand()
-    mainPlayFlow()
+    if (user.valor == 0) {
+        alert("Você perdeu... :(")
+        alert("Reiniciando o jogo")
+        location.reload()
+    } else {
+        $('#nextHand').css('display', 'none')
+        mesa.nextHand()
+        mainPlayFlow()
+    }
 }
 
 const userPlay = (quit) => {
@@ -43,7 +52,7 @@ const drawTable = () => {
         $(`#${player.id}_pit`).html(player.valor);
         player.cards.forEach((card, index) => {
             let cardElement = $(`#${player.id}_card${index}`)
-            if(!player.playable) {
+            if (!player.playable) {
                 cardElement.css('display', 'none')
             } else {
                 updateVisibility(cardElement, card)
