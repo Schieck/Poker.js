@@ -10,7 +10,7 @@ class TwoPairEvaluate {
         let summedGroups = pairsGroup.map(group => {
             return getSum(group)
         })
-        let remainingCard = _.sort(getRemainings(newCards, _.flatten(pairsGroup)), 'value').reverse()[0]
+        let remainingCard = _.sortBy(getRemainings(newCards, _.flatten(pairsGroup)), 'value').reverse()[0]
         let getPairsValue = summedGroups[0] > summedGroups[1]
             ? 2000 + summedGroups[0] * 20 + summedGroups[1] * 10
             : 2000 + summedGroups[1] * 20 + summedGroups[0] * 10

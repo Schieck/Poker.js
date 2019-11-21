@@ -1,6 +1,6 @@
 class RoyalStraitFlushEvaluate {
     evaluate(cards) {
-        let possibleRoyalSequence = _.take(_.sort(transformAsValueIn(cards, 14), 'value').reverse(), 5)
+        let possibleRoyalSequence = _.take(_.sortBy(transformAsValueIn(cards, 14), 'value').reverse(), 5)
         if(possibleRoyalSequence[0].value == 14) {
             let sequence = _.takeWhile(_.slice(possibleRoyalSequence, 1, 5), (card, index) => {
                 return card.value == possibleRoyalSequence[index - 1].value + 1
