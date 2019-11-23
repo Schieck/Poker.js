@@ -1,47 +1,33 @@
-const gameEvaluateLogic = new GameEvaluateLogic([
-    new RoyalStraitFlushEvaluate(),
-    new StraitFlushEvaluate(),
-    new FourEvaluate(),
-    new FullHouseEvaluate(),
-    new FlushEvaluate(),
-    new StraitEvaluate(),
-    new ThreeEvaluate(),
-    new TwoPairEvaluate(),
-    new PairEvaluate(),
-    new HigherCardEvaluate()
-])
 class Mesa {
-    constructor(players, tablePit) {
+    constructor(players, tablePit, gameEvaluateLogic) {
         this.players = players
         this.tablePit = tablePit
+        this.gameEvaluateLogic = gameEvaluateLogic
         this.round = 1
     }
 
-    getPlayablePlayersNumber() {
-        return this.findPlayablePlayers(this.players)
-    }
-
     setUpHand() {
-        this.distributeCards()
+        this._distributeCards()
         this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof Jogador))
         this.user = _.find(this.players, player => player instanceof Jogador)
         this.lastPlayers = _.takeRightWhile(this.players, player => !(player instanceof Jogador))
 
     }
 
-    userAction(quit) {
-        if(this.user.playable) {
-            mesa.tablePit += this.user.play(quit)
-        }
+    getPlayablePlayersNumber() {
+        return this._findPlayablePlayers(this.players).length
     }
 
     playFirsts() {
-        this.playTurn(this.firstPlayers)
+        this._playTurn(this.firstPlayers)
     }
 
+    userAction(quit) {
+        mesa.tablePit += this.user.play(quit)
+    }
 
     playLast() {
-        this.playTurn(this.lastPlayers)
+        this._playTurn(this.lastPlayers)
         this.turnNextCards()
     }
 
@@ -58,30 +44,43 @@ class Mesa {
         this.round++
     }
 
-    distribuitsEarings(){
-        this.findPlayablePlayers(this.players).forEach(player => player.setVisibleCards(true))
-        let winner = gameEvaluateLogic.findWinner(this.tableCards, this.findPlayablePlayers(this.players))
+    distribuitsEarings() {
+        let playable = this._findPlayablePlayers(this.players)
+        let winner = gameEvaluateLogic.findWinner(this.tableCards, playable)
         winner.receiveChips(this.tablePit)
+        playable.forEach(player => player.setVisibleCards(true))
         this.tablePit = 0
     }
 
     nextHand() {
-        this.cleanTable()
-        this.moveDealer()
+        this._cleanTable()
+        this._moveDealer()
         this.setUpHand()
     }
 
-    dealFirstBets() {
-        this.tablePit += _.sum(_.slice(this.players, 0, 1), player => player.getBet())
+    toJson() {
+        return JSON.stringify({
+            players: this.players,
+            tablePit: this.tablePit,
+            round: this.round,
+            tableCards: this.tableCards
+        })
     }
 
-    playTurn(players) {
-        this.findPlayablePlayers(players).forEach(player => {
+    loadInfo({ players, tablePit, round, tableCards }) {
+        this.players = this._loadPlayers(players)
+        this.tablePit = tablePit
+        this.round = round
+        this.tableCards = tableCards
+    }
+
+    _playTurn(players) {
+        this._findPlayablePlayers(players).forEach(player => {
             mesa.tablePit += player.play()
         })
     }
 
-    cleanTable() {
+    _cleanTable() {
         this.round = 1
         this.tableCards = []
         this.players.forEach(player => {
@@ -90,10 +89,10 @@ class Mesa {
         })
     }
 
-    distributeCards() {
+    _distributeCards() {
         let deck = new Deck()
         deck.shuffle()
-        this.findPlayablePlayers(this.players)
+        this._findPlayablePlayers(this.players)
             .forEach((player) => {
                 player.receiveCards(_.slice(deck.cards, 0, 2))
                 deck.cards.shift()
@@ -102,7 +101,7 @@ class Mesa {
         this.tableCards = _.slice(deck.cards, 0, 5)
     }
 
-    moveDealer() {
+    _moveDealer() {
         let firstPlayer = this.players[0]
         for (let i = 1; i < this.players.length; i++) {
             this.players[i - 1] = this.players[i]
@@ -110,8 +109,15 @@ class Mesa {
         this.players[this.players.length - 1] = firstPlayer
     }
 
-    findPlayablePlayers(players) {
+    _findPlayablePlayers(players) {
         return players.filter(player => player.playable)
+    }
+
+    _loadPlayers(players) {
+        return players.map(player => {
+            if(player.id == 'player') return new Jogador(player.id, player.valor, player.cards, player.playable)
+            else return new Bot(player.id, player.valor, player.cards, player.playable)
+        })
     }
 
 }

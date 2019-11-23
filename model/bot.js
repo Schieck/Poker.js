@@ -1,8 +1,9 @@
 class Bot {
-    constructor(id, valor) {
+    constructor(id, valor, cards, playable) {
         this.id = id
         this.valor = valor
-        this.playable = true
+        this.cards = cards
+        this.playable = playable
     }
 
     play() {

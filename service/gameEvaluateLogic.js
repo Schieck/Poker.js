@@ -6,7 +6,7 @@ class GameEvaluateLogic {
         return _.find(playablePlayers, player => player.id == 'player')
     }
 
-    find(tableCards, playablePlayers) {
+    _findWinner(tableCards, playablePlayers) {
         let orderd = _.sortBy(_.concat(tableCards, playablePlayers), 'value')
         let winnerId = _.head(_.sortBy(playablePlayers.map(player => {
             let value = this.evaluators.find(evaluator => evaluator.evaluate(orderd)).receivePoints(orderd)

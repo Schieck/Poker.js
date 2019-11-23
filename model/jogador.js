@@ -1,8 +1,9 @@
 class Jogador {
-    constructor(id, valor) {
+    constructor(id, valor, cards, playable) {
         this.id = id
         this.valor = valor
-        this.playable = true
+        this.playable = playable
+        this.cards = cards
     }
 
     play(quit) {
