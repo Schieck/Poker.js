@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Mocha Runner</title>
+        <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    </head>
+    <body>
+        <div id="mocha"></div>
+
+        <script src="../node_modules/mocha/mocha.js"></script>
+        <script src="../node_modules/chai/chai.js"></script>
+        <script>mocha.setup('bdd')</script>
+
+        <script src="../thirdParties/lodash.js"></script>
+        <script src="../src/model/naipes.js"></script>
+        <script src="../src/model/card.js"></script>
+        <script src="../src/service/gameEvaluateLogic.js"></script>
+        <script src="../src/service/evaluaterHelper.js"></script>
+        <script src="../src/service/evaluators/flushEvaluate.js"></script>
+        <script src="../src/service/evaluators/fourEvaluate.js"></script>
+        <script src="../src/service/evaluators/fullHouseEvaluate.js"></script>
+        <script src="../src/service/evaluators/higherCardEvaluator.js"></script>
+        <script src="../src/service/evaluators/pairEvaluate.js"></script>
+        <script src="../src/service/evaluators/royalStraitFlushEvaluate.js"></script>
+        <script src="../src/service/evaluators/straitEvaluate.js"></script>
+        <script src="../src/service/evaluators/straitFlush.js"></script>
+        <script src="../src/service/evaluators/threeEvaluate.js"></script>
+        <script src="../src/service/evaluators/twoPairEvaluate.js"></script>
+
+        <script src="specs/gameEvaluatorLogic.spec.js"></script>
+
+        <script>mocha.run()</script>
+    </body>
+</html>

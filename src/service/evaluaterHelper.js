@@ -2,7 +2,9 @@ const findSequence = (cards) => {
     let reversedCards = _.cloneDeep(cards).reverse()
     for (let i = 0; i < 3; i++) {
         let possibleSequence = _.takeWhile(_.slice(reversedCards, 0 + i, 5 + i), (card, index) => {
-            return index < reversedCards.length - 1 && card.value - 1 == reversedCards[index + 1].value
+            return index <= reversedCards.length - 1
+                ? true
+                : card.value - 1 == reversedCards[index + 1].value
         })
         if (possibleSequence.length == 5) return possibleSequence
     }
