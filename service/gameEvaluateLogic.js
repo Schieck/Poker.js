@@ -2,20 +2,20 @@ class GameEvaluateLogic {
     constructor(evaluators) {
         this.evaluators = evaluators
     }
-    findWinner(tableCards, playablePlayers) {
-        return _.find(playablePlayers, player => player.id == 'player')
-    }
-
-    _findWinner(tableCards, playablePlayers) {
-        let orderd = _.sortBy(_.concat(tableCards, playablePlayers), 'value')
-        let winnerId = _.head(_.sortBy(playablePlayers.map(player => {
+    
+    findWinners(tableCards, playablePlayers) {
+        let playersPoints = playablePlayers.map(player => {
+            let orderd = _.sortBy(_.concat(tableCards, player.cards), 'value')
             let value = this.evaluators.find(evaluator => evaluator.evaluate(orderd)).receivePoints(orderd)
             return {
                 id: player.id,
                 value: value
             }
-        }), 'value').reverse()).id
-        return playablePlayers.find(player => player.id == winnerId)
+        })
+        let groupedPoints = _.groupBy(playersPoints, 'value')
+        let maximumPoints = _.sortBy(_.keys(groupedPoints)).reverse()[0]
+        let winnersId = _.map(groupedPoints[maximumPoints], 'id')
+        return winnersId.map(id => playablePlayers.find(player => player.id == id))
     }
 
 }

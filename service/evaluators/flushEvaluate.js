@@ -2,7 +2,7 @@ class FlushEvaluate {
     evaluate(cards) {
         let groups = _.groupBy(cards, 'naipe')
         let flushKey = _.findKey(groups, group => group.length >= 5)
-        return groups[flushKey].length >= 5
+        return flushKey &&  groups[flushKey].length >= 5
     }
 
     receivePoints(cards) {

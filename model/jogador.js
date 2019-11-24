@@ -1,7 +1,7 @@
 class Jogador {
-    constructor(id, valor, cards, playable) {
+    constructor(id, value, cards, playable) {
         this.id = id
-        this.valor = valor
+        this.value = value
         this.playable = playable
         this.cards = cards
     }
@@ -27,16 +27,16 @@ class Jogador {
     }
 
     receiveChips(value) {
-        this.valor += value
+        this.value += value
     }
 
     getBet() {
-        if (this.valor < 50) {
-            let value = this.valor
-            this.valor = 0
+        if (this.value < 50) {
+            let value = this.value
+            this.value = 0
             return value
         } else {
-            this.valor -= 50
+            this.value -= 50
             return 50
         }
     }

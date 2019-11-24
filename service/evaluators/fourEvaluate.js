@@ -9,7 +9,7 @@ class FourEvaluate {
     }
 
     findQuadruplet(cards) {
-        let quadGroup = _.groupBy(cards, 'valor');
+        let quadGroup = _.groupBy(cards, 'value');
         let quadKey = _.findKey(quadGroup, group => group.length == 4)
         return quadKey ? quadGroup[quadKey] : []
     }

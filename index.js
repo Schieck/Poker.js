@@ -43,7 +43,7 @@ const mainPlayFlow = () => {
 }
 
 const nextHand = () => {
-    if (user.valor == 0) {
+    if (user.value == 0) {
         alert("Você perdeu... :(")
         alert("Reiniciando o jogo")
         location.reload()
@@ -61,10 +61,10 @@ const userPlay = (quit) => {
 }
 
 const drawTable = () => {
-    $("#table_pit").html(mesa.tablePit)
+    $("#table_pot").html(mesa.tablePot)
     flipTableCards()
     mesa.players.forEach(player => {
-        $(`#${player.id}_pit`).html(player.valor);
+        $(`#${player.id}_pot`).html(player.value);
         player.cards.forEach((card, index) => {
             let cardElement = $(`#${player.id}_card${index}`)
             if (!player.playable && player.id != 'player') {

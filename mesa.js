@@ -1,7 +1,7 @@
 class Mesa {
-    constructor(players, tablePit, gameEvaluateLogic) {
+    constructor(players, tablePot, gameEvaluateLogic) {
         this.players = players
-        this.tablePit = tablePit
+        this.tablePot = tablePot
         this.gameEvaluateLogic = gameEvaluateLogic
         this.round = 1
     }
@@ -23,7 +23,7 @@ class Mesa {
     }
 
     userAction(quit) {
-        mesa.tablePit += this.user.play(quit)
+        mesa.tablePot += this.user.play(quit)
     }
 
     playLast() {
@@ -46,10 +46,10 @@ class Mesa {
 
     distribuitsEarings() {
         let playable = this._findPlayablePlayers(this.players)
-        let winner = gameEvaluateLogic.findWinner(this.tableCards, playable)
-        winner.receiveChips(this.tablePit)
+        let winners = gameEvaluateLogic.findWinners(this.tableCards, playable)
+        winners.forEach(winner => winner.receiveChips(Math.round(this.tablePot/winners.length)))
         playable.forEach(player => player.setVisibleCards(true))
-        this.tablePit = 0
+        this.tablePot = 0
     }
 
     nextHand() {
@@ -61,22 +61,22 @@ class Mesa {
     toJson() {
         return JSON.stringify({
             players: this.players,
-            tablePit: this.tablePit,
+            tablePot: this.tablePot,
             round: this.round,
             tableCards: this.tableCards
         })
     }
 
-    loadInfo({ players, tablePit, round, tableCards }) {
+    loadInfo({ players, tablePot, round, tableCards }) {
         this.players = this._loadPlayers(players)
-        this.tablePit = tablePit
+        this.tablePot = tablePot
         this.round = round
         this.tableCards = tableCards
     }
 
     _playTurn(players) {
         this._findPlayablePlayers(players).forEach(player => {
-            mesa.tablePit += player.play()
+            mesa.tablePot += player.play()
         })
     }
 
@@ -84,7 +84,7 @@ class Mesa {
         this.round = 1
         this.tableCards = []
         this.players.forEach(player => {
-            player.playable = player.valor > 0
+            player.playable = player.value > 0
             player.cards = []
         })
     }
@@ -115,8 +115,8 @@ class Mesa {
 
     _loadPlayers(players) {
         return players.map(player => {
-            if(player.id == 'player') return new Jogador(player.id, player.valor, player.cards, player.playable)
-            else return new Bot(player.id, player.valor, player.cards, player.playable)
+            if(player.id == 'player') return new Jogador(player.id, player.value, player.cards, player.playable)
+            else return new Bot(player.id, player.value, player.cards, player.playable)
         })
     }
 

@@ -1,7 +1,7 @@
 class Bot {
-    constructor(id, valor, cards, playable) {
+    constructor(id, value, cards, playable) {
         this.id = id
-        this.valor = valor
+        this.value = value
         this.cards = cards
         this.playable = playable
     }
@@ -16,7 +16,7 @@ class Bot {
     }
 
     receiveChips(value) {
-        this.valor += value
+        this.value += value
     }
 
     setVisibleCards(visible) {
@@ -26,12 +26,12 @@ class Bot {
     }
 
     getBet() {
-        if(this.valor < 50) {
-            let value = this.valor
-            this.valor = 0
+        if(this.value < 50) {
+            let value = this.value
+            this.value = 0
             return value
         } else {
-            this.valor -= 50
+            this.value -= 50
             return 50
         }
     }
