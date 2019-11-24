@@ -4,7 +4,7 @@
   "description": "A poker game developed in js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,9 @@
   ],
   "author": "Ricardo Schieck, João Pedro Martis, Delmar Lucas, Guilherme Dall'Agnol, Lucas Silva, Vitor Hugo, Lucas Bankow",
   "license": "MIT",
-  "dependencies": {
-    
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
   }
 }
