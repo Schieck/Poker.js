@@ -14,9 +14,9 @@ class FullHouseEvaluate {
         let newCards = transformAsValueIn(cards, 14)
         let triplets = findGroup(newCards, 3)
         let biggestTriplet = triplets.length == 1 ? triplets[0] : this.biggestGroup(triplets)
-        let pairs = findGroup(this.getRemainings(cards, biggestTriplet), 2)
+        let pairs = findGroup(this.getRemainings(newCards, biggestTriplet), 2)
         let biggestPair = pairs.length == 1 ? pairs[0] : this.biggestGroup(pairs)
-        return getSum(biggestTriplet) * 10 + getSum(biggestPair)
+        return getSum(biggestTriplet) * 10 + getSum(biggestPair) + 7000
     }
 
     biggestGroup(groups) {
@@ -24,8 +24,8 @@ class FullHouseEvaluate {
             return getSum(group)
         })
         return summedGroup[0] > summedGroup[1]
-            ? summedGroup[0]
-            : summedGroup[1]
+            ? groups[0]
+            : groups[1]
     }
 
     getRemainings(cards, triplets) {

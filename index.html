@@ -29,22 +29,22 @@
             <!-- Mesa de poker -->
             <img src="./textures/MesaPokersemcartas.png" class="table" alt="">
             <!-- Cadeira Bot 1 e cartas 0 e 1 -->
-            <img src="./textures/cadeiraPoker.png" class="bot-1" id="bot1_pit">
+            <img src="./textures/cadeiraPoker.png" class="bot-1" id="bot1_pot">
             <img src="./textures/cards/purple_back.png" class="bot-1-card-0" id="bot1_card0">
             <img src="./textures/cards/purple_back.png" class="bot-1-card-1" id="bot1_card1">
             <!-- Cadeira Bot 2 e cartas 0 e 1 -->
-            <img src="./textures/cadeiraPoker.png" class="bot-2" id="bot2_pit">
+            <img src="./textures/cadeiraPoker.png" class="bot-2" id="bot2_pot">
             <img src="./textures/cards/purple_back.png" class="bot-2-card-0" id="bot2_card0">
             <img src="./textures/cards/purple_back.png" class="bot-2-card-1" id="bot2_card1">
             <!-- Player e cartas 0 e 1 -->
             <img id="player_card0" src="textures/cards/purple_back.png" class="player-card-0" alt="userCard">
             <img id="player_card1" src="textures/cards/purple_back.png" class="player-card-1" alt="userCard">
             <!-- Cadeira Bot 4 e cartas 0 e 1 -->
-            <img src="./textures/cadeiraPoker.png" class="bot-4" id="bot4_pit">
+            <img src="./textures/cadeiraPoker.png" class="bot-4" id="bot4_pot">
             <img src="./textures/cards/purple_back.png" class="bot-4-card-0" id="bot4_card0">
             <img src="./textures/cards/purple_back.png" class="bot-4-card-1" id="bot4_card1">
             <!-- Cadeira Bot 5 e cartas 0 e 1 -->
-            <img src="./textures/cadeiraPoker.png" class="bot-5" id="bot5_pit">
+            <img src="./textures/cadeiraPoker.png" class="bot-5" id="bot5_pot">
             <img src="./textures/cards/purple_back.png" class="bot-5-card-0" id="bot5_card0">
             <img src="./textures/cards/purple_back.png" class="bot-5-card-1" id="bot5_card1">
             <!-- Cartas da mesa -->
@@ -53,13 +53,12 @@
             <img src="./textures/cards/purple_back.png" class="table-card-2" id="flop_2">
             <img src="./textures/cards/purple_back.png" class="table-card-3" id="turn">
             <img src="./textures/cards/purple_back.png" class="table-card-4" id="river">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 call-fold">
-            <button id='nextHand' onclick="nextHand()" type="button", class="btn btn-primary">Próxima Mão</button>
-            <button onclick="userPlay(false)" type="button" class="btn btn-danger">Fold</button>
-            <button onclick="userPlay(true)" type="button" class="btn btn-success">Call</button>
+            <span id="player_pot" style="z-index: 4; margin-top: 415px; margin-left: 500px">500</span>
+            <div style="z-index: 4; margin-top: 375px; margin-left: 200px">
+                <button id='nextHand' onclick="nextHand()" type="button" class="btn btn-primary">Próxima Mão</button>
+                <button onclick="userPlay(false)" type="button" class="btn btn-danger">Fold</button>
+                <button onclick="userPlay(true)" type="button" class="btn btn-success">Call</button>
+            </div>
         </div>
     </div>
 
@@ -89,26 +88,26 @@
 
 
     <!-- Game Script -->
-    <script src="lodash.js"></script>
-    <script src="fileSaver.js"></script>
-    <script src="model/jogador.js"></script>
-    <script src="model/bot.js"></script>
-    <script src="model/naipes.js"></script>
-    <script src="model/card.js"></script>
-    <script src="service/gameEvaluateLogic.js"></script>
-    <script src="service/evaluaterHelper.js"></script>
-    <script src="service/evaluators/flushEvaluate.js"></script>
-    <script src="service/evaluators/fourEvaluate.js"></script>
-    <script src="service/evaluators/fullHouseEvaluate.js"></script>
-    <script src="service/evaluators/higherCardEvaluator.js"></script>
-    <script src="service/evaluators/pairEvaluate.js"></script>
-    <script src="service/evaluators/royalStraitFlushEvaluate.js"></script>
-    <script src="service/evaluators/straitEvaluate.js"></script>
-    <script src="service/evaluators/straitFlush.js"></script>
-    <script src="service/evaluators/threeEvaluate.js"></script>
-    <script src="service/evaluators/twoPairEvaluate.js"></script>
-    <script src="mesa.js"></script>
-    <script src="index.js"></script>
+    <script src="thirdParties/lodash.js"></script>
+    <script src="thirdParties/fileSaver.js"></script>
+    <script src="src/model/jogador.js"></script>
+    <script src="src/model/bot.js"></script>
+    <script src="src/model/naipes.js"></script>
+    <script src="src/model/card.js"></script>
+    <script src="src/service/gameEvaluateLogic.js"></script>
+    <script src="src/service/evaluaterHelper.js"></script>
+    <script src="src/service/evaluators/flushEvaluate.js"></script>
+    <script src="src/service/evaluators/fourEvaluate.js"></script>
+    <script src="src/service/evaluators/fullHouseEvaluate.js"></script>
+    <script src="src/service/evaluators/higherCardEvaluator.js"></script>
+    <script src="src/service/evaluators/pairEvaluate.js"></script>
+    <script src="src/service/evaluators/royalStraitFlushEvaluate.js"></script>
+    <script src="src/service/evaluators/straitEvaluate.js"></script>
+    <script src="src/service/evaluators/straitFlush.js"></script>
+    <script src="src/service/evaluators/threeEvaluate.js"></script>
+    <script src="src/service/evaluators/twoPairEvaluate.js"></script>
+    <script src="src/service/mesa.js"></script>
+    <script src="app.js"></script>
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

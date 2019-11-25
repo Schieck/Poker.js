@@ -1,7 +1,7 @@
 class Card {
-    constructor(naipe, valor, frontImage, backImage) {
+    constructor(naipe, value, frontImage, backImage) {
         this.naipe = naipe
-        this.valor = valor
+        this.value = value
         this.frontImage = frontImage
         this.backImage = backImage
         this.visibilidade = false
@@ -10,7 +10,7 @@ class Card {
 class Deck {
     constructor(){
         this.cards = _.values(Naipes)
-            .flatMap(naipe => _.range(1,14).map(valor => new Card(naipe, valor, `textures/cards/${valor}${naipe}.png`, 'textures/cards/purple_back.png')))
+            .flatMap(naipe => _.range(1,14).map(value => new Card(naipe, value, `textures/cards/${value}${naipe}.png`, 'textures/cards/purple_back.png')))
     }
 
     shuffle(){

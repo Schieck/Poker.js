@@ -1,6 +1,21 @@
-let user = new Jogador('player', 500)
-let players = [new Bot('bot1', 500), new Bot('bot2', 500), user, new Bot('bot4', 500), new Bot('bot5', 500)]
-let mesa = new Mesa(_.shuffle(players), 0)
+const gameEvaluateLogic = new GameEvaluateLogic([
+    new RoyalStraitFlushEvaluate(),
+    new StraitFlushEvaluate(),
+    new FourEvaluate(),
+    new FullHouseEvaluate(),
+    new FlushEvaluate(),
+    new StraitEvaluate(),
+    new ThreeEvaluate(),
+    new TwoPairEvaluate(),
+    new PairEvaluate(),
+    new HigherCardEvaluate()
+])
+let user = new Jogador('player', 500, [], true)
+let players = [
+    new Bot('bot1', 500, [], true), new Bot('bot2', 500, [], true), user,
+    new Bot('bot4', 500, [], true), new Bot('bot5', 500, [], true)
+]
+let mesa = new Mesa(_.shuffle(players), 0, gameEvaluateLogic)
 
 window.onload = () => {
     mesa.setUpHand()
@@ -28,7 +43,7 @@ const mainPlayFlow = () => {
 }
 
 const nextHand = () => {
-    if (user.valor == 0) {
+    if (user.value == 0) {
         alert("Você perdeu... :(")
         alert("Reiniciando o jogo")
         location.reload()
@@ -46,17 +61,14 @@ const userPlay = (quit) => {
 }
 
 const drawTable = () => {
-    $("#table_pit").html(mesa.tablePit)
+    $("#table_pot").html(mesa.tablePot)
     flipTableCards()
     mesa.players.forEach(player => {
-        $(`#${player.id}_pit`).html(player.valor);
+        $(`#${player.id}_pot`).html(player.value);
+        if (!player.playable && player.id != 'player') hideBotCards(player.id)
         player.cards.forEach((card, index) => {
             let cardElement = $(`#${player.id}_card${index}`)
-            if (!player.playable) {
-                cardElement.css('display', 'none')
-            } else {
-                updateVisibility(cardElement, card)
-            }
+            updateVisibility(cardElement, card)
         })
     });
 }
@@ -74,19 +86,23 @@ const flipTableCards = () => {
     updateVisibility($('#river'), river)
 }
 
+const hideBotCards = (botId) => {
+    $(`#${botId}_card0`).css('display', 'none')
+    $(`#${botId}_card1`).css('display', 'none')
+}
+
 const updateVisibility = (imgElemt, card) => {
     if (card.visibilidade) imgElemt.attr('src', card.frontImage)
     else imgElemt.attr('src', card.backImage)
 }
 
-const saveGame = () => {
-    let blob = new Blob([JSON.stringify(mesa)])
-    saveAs(blob, 'pokerGame.json')
+const reset = () => {
+    location.reload()
 }
 
-
-const reset = () => {
-    location.reload()   
+const saveGame = () => {
+    let blob = new Blob([mesa.toJson()])
+    saveAs(blob, 'pokerGame.json')
 }
 
 
@@ -96,8 +112,7 @@ fileInput.addEventListener('change', () => {
     try {
         let fileReader = new FileReader()
         fileReader.onload = (load) => {
-            let loadedMesa = JSON.parse(fileReader.result)
-            mesa = loadedMesa
+            mesa.loadInfo(JSON.parse(fileReader.result))
             drawTable()
             $('#ModalLongoExemplo').modal('hide')
         }

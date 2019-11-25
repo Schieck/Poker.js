@@ -1,19 +1,13 @@
 # Poker.js
 Poker game with javascript.
-Created by ES depression
+Created with :heart: by ES depression
 
-## TODOS
-* [X] - Criar cartas
-* [X] - Criar jogadores
-* [X] - Shuffles das cartas
-* [X] - Incio do jogo
-* [X] - Movimentação do dealer
-* [X] - Split do jogador em antes dele, ele, dps
-* [X] - Virada de cartas por rodada
-* [ ] - Aplicar volta num2 em diante
-* [ ] - Injetar dependencias nessa classe
-* [ ] - Aplicar regra de jogo do jogador
-* [ ] - Remoção de jogador quando acaba as fichas
-* [ ] - Fazer logica de jogo da maquina
-* [ ] - Implementar regra de pontuação
-* [ ] - Teeeestes 
+
+---
+
+#To run test
+
+- Must have `Node.js` and `npm`
+- Clone or Download the Project
+- Run `npm i` 
+- Open the `test/specs/testRunner.html` file

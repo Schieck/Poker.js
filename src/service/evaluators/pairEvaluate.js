@@ -6,9 +6,9 @@ class PairEvaluate {
 
     receivePoints(cards) {
         let newCards = transformAsValueIn(cards, 30)
-        let pair = findGroup(cards, 2)[0]
-        let remaing = _.take(_.sortBy(getRemainings(newCards, pair), 'value').reverse(), 3)
-        return 2000 + getSum(pair) + getSum(remaing)
+        let pair = findGroup(newCards, 2)[0]
+        let remaing = _.take(_.sortBy(this.getRemainings(newCards, pair), 'value').reverse(), 3)
+        return 2000 + getSum(pair) * 10 + getSum(remaing)
     }
 
     getRemainings(cards, group) {
