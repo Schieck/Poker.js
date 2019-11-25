@@ -10,6 +10,14 @@ body {
   display: none;
 }
 
+#creation {
+  text-align: center;
+  margin-top: 150px;
+  color: black;
+  font-weight: bold;
+  z-index: 7;
+}
+
 .alinhar-final{
   display: flex;
   justify-content: flex-end;
