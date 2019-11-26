@@ -22,84 +22,97 @@ body {
 
 .call-fold{
   position: relative;
-  margin-top: 400px; 
-  margin-left: 500px;
+  margin-top: 450px; 
+  margin-left: 140px;
   z-index: 5;
 }
 
 .bot1_pot{
   z-index: 4; 
   position: absolute;
-  margin-top: 340px; 
-  margin-left: -240px;
+  margin-top: 330px; 
+  margin-left: -265px;
+  color: #fff;
 }
 
 .bot2_pot{
   z-index: 4; 
   position: absolute;
-  margin-top: 170px; 
-  margin-left: -214px;
+  margin-top: 220px; 
+  margin-left: -185px;
+  color: #fff;
 }
 
 .bot4_pot{
   z-index: 4;
   position: absolute;
-  margin-top: 150px;
-  margin-left: 5px;
+  margin-top: 220px;
+  margin-left: 90px;
+  color: #fff;
 }
 
 .bot5_pot{
   z-index: 4; 
   position: absolute;
-  margin-top: 210px; 
-  margin-left: 175px;
+  margin-top: 330px; 
+  margin-left: 190px;
+  color: #fff;
 }
 
 .player_pot{
   z-index: 4; 
   position: absolute;
-  margin-top: 400px; 
-  margin-left: 5px;
+  margin-top: 440px; 
+  margin-left: -90px;
+  color: #fff;
+}
+
+.table_pot {
+  z-index: 4; 
+  position: absolute;
+  margin-top: 250px; 
+  margin-left: -45px;
+  color: #fff;
 }
 
 .bot-1 {
  z-index: 1;
- height: 230px;
+ height: 250px;
  position: absolute;
- margin-top: 200px;
- margin-left: -305px;
+ margin-top: 240px;
+ margin-left: -415px;
 }
 
 .bot-2 {
   z-index: 1; 
-  height: 230px; 
+  height: 250px; 
   position: absolute; 
-  margin-top: -25px; 
-  margin-left: -160px; 
+  margin-top: -15px; 
+  margin-left: -205px; 
   transform: rotate(90deg);
 }
  
 .bot-4 {
   z-index: 1; 
-  height: 230px; 
+  height: 250px; 
   position: absolute; 
-  margin-top: -25px; 
-  margin-left: 62px; 
+  margin-top: -20px; 
+  margin-left: 65px; 
   transform: rotate(90deg);
 }
 
 .bot-5 {
   z-index: 1; 
-  height: 230px; 
+  height: 250px; 
   position: absolute; 
-  margin-top: 150px;
-  margin-left: 235px; 
+  margin-top: 190px;
+  margin-left: 335px; 
   transform: rotate(180deg);
 }
 
 .table {
-  height: 800px; 
-  width: 900px;
+  height: 900px; 
+  width: 1200px;
   z-index: 2; 
   position: absolute;
 }
@@ -108,7 +121,7 @@ body {
   z-index:3; 
   height: 75px; 
   position: absolute; 
-  margin-top: 250px;  
+  margin-top: 295px;  
   margin-left: -163px;
 }
 
@@ -116,7 +129,7 @@ body {
   z-index:3; 
   height: 75px; 
   position: absolute; 
-  margin-top: 250px; 
+  margin-top: 295px; 
   margin-left: -112px;
 }
 
@@ -124,7 +137,7 @@ body {
   z-index:3; 
   height: 75px; 
   position: absolute; 
-  margin-top: 250px; 
+  margin-top: 295px; 
   margin-left: -62px;
 }
 
@@ -132,7 +145,7 @@ body {
   z-index:3; 
   height: 75px; 
   position: absolute; 
-  margin-top: 250px; 
+  margin-top: 295px; 
   margin-left: 6px;
 }
 
@@ -140,91 +153,91 @@ body {
   z-index:3; 
   height: 75px; 
   position: absolute; 
-  margin-top: 250px; 
+  margin-top: 295px; 
   margin-left: 75px;
 }
 
 .bot-1-card-0 {
   z-index: 3;
-  height: 50px;
+  height: 70px;
   position: absolute;
-  margin-top: 280px;
-  margin-left: -265px;
+  margin-top: 330px;
+  margin-left: -335px;
   transform: rotate(90deg);
 }
 
 .bot-1-card-1{
   z-index: 3; 
-  height: 50px; 
+  height: 70px; 
   position: absolute; 
-  margin-top: 240px; 
-  margin-left: -265px; 
+  margin-top: 280px; 
+  margin-left: -335px; 
   transform: rotate(90deg);
 }
 
 .bot-2-card-0 {
   z-index: 3; 
-  height: 50px; 
+  height: 70px; 
   position: absolute; 
-  margin-top: 118px; 
-  margin-left: -163px;
+  margin-top: 140px; 
+  margin-left: -210px;
 }
 
 .bot-2-card-1 {
   z-index: 3; 
-  height: 50px; 
+  height: 70px; 
   position: absolute; 
-  margin-top: 118px; 
-  margin-left: -125px;
+  margin-top: 140px; 
+  margin-left: -160px;
 }
 
 .bot-4-card-0 {
   z-index: 3; 
-  height: 50px; 
+  height: 70px; 
   position: absolute; 
-  margin-top: 118px;
-  margin-left: 62px;
+  margin-top: 140px;
+  margin-left: 60px;
 }
 
 .bot-4-card-1 {
   z-index: 3; 
-  height: 50px; 
+  height: 70px; 
   position: absolute; 
-  margin-top: 118px;
-  margin-left: 100px;
+  margin-top: 140px;
+  margin-left: 110px;
 }
 
 .bot-5-card-0 {
   z-index: 3; 
-  height: 50px; 
+  height: 70px; 
   position: absolute; 
-  margin-top: 276px; 
-  margin-left: 200px; 
+  margin-top: 330px; 
+  margin-left: 265px; 
   transform: rotate(90deg);
 }
 
 .bot-5-card-1 {
   z-index: 3; 
-  height: 50px; 
+  height: 70px; 
   position: absolute; 
-  margin-top: 240px; 
-  margin-left: 200px; 
+  margin-top: 280px; 
+  margin-left: 265px; 
   transform: rotate(90deg);
 }
 
 .player-card-0 {
   z-index: 3; 
-  height: 120px; 
+  height: 140px; 
   position: absolute; 
-  margin-top: 430px; 
-  margin-left: -60px;
+  margin-top: 480px; 
+  margin-left: -45px;
 }
 
 .player-card-1 {
   z-index: 3; 
-  height: 120px; 
+  height: 140px; 
   position: absolute; 
-  margin-top: 430px; 
+  margin-top: 480px; 
   margin-left: -140px;
 }
 

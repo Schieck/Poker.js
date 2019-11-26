@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-md-12 alinhar-centro" style="margin-left:32.5px;">
             <!-- Mesa de poker -->
-            <img src="./textures/MesaPokersemcartas.png" class="table" alt="">
+            <img src="./textures/MesaPokersemcartas.png" class="table" >
             <!-- Cadeira Bot 1 e cartas 0 e 1 e pot -->
             <img src="./textures/cadeiraPoker.png" class="bot-1" >
             <img src="./textures/cards/purple_back.png" class="bot-1-card-0" id="bot1_card0">
@@ -41,16 +41,19 @@
             <!-- Player e cartas 0 e 1 -->
             <img id="player_card0" src="textures/cards/purple_back.png" class="player-card-0" alt="userCard">
             <img id="player_card1" src="textures/cards/purple_back.png" class="player-card-1" alt="userCard">
+            <!--img src="./textures/FichasPoker.png" class="player_pot" style="z-index: 2; height: 50px;"-->
             <span id="player_pot" class="player_pot">500</span>
             <!-- Cadeira Bot 4 e cartas 0 e 1  e pot -->
             <img src="./textures/cadeiraPoker.png" class="bot-4" >
             <img src="./textures/cards/purple_back.png" class="bot-4-card-0" id="bot4_card0">
             <img src="./textures/cards/purple_back.png" class="bot-4-card-1" id="bot4_card1">
             <span id="bot4_pot" class="bot4_pot">500</span>
+            <!--<img src="./textures/FichasPoker.png" class="bot4_pot" style="z-index: 3; height: 50px; transform: rotate(180deg);">-->
             <!-- Cadeira Bot 5 e cartas 0 e 1 e pot-->
             <img src="./textures/cadeiraPoker.png" class="bot-5" >
             <img src="./textures/cards/purple_back.png" class="bot-5-card-0" id="bot5_card0">
             <img src="./textures/cards/purple_back.png" class="bot-5-card-1" id="bot5_card1">
+            <!--<img src="./textures/FichasPoker.png" class="bot5_pot" style="z-index: 3; height: 50px;"-->
             <span id="bot5_pot" class="bot5_pot">500</span>
             <!-- Cartas da mesa -->
             <img src="./textures/cards/purple_back.png" class="table-card-0" id="flop_0">
@@ -58,7 +61,8 @@
             <img src="./textures/cards/purple_back.png" class="table-card-2" id="flop_2">
             <img src="./textures/cards/purple_back.png" class="table-card-3" id="turn">
             <img src="./textures/cards/purple_back.png" class="table-card-4" id="river">
-            <div style="z-index: 4; margin-top: 375px; margin-left: 200px">
+            <span id="table_pot" class="table_pot">500</span>
+            <div class="call-fold">
                 <button id='nextHand' onclick="nextHand()" type="button" class="btn btn-primary">Próxima Mão</button>
                 <button onclick="userPlay(false)" type="button" class="btn btn-danger">Fold</button>
                 <button onclick="userPlay(true)" type="button" class="btn btn-success">Call</button>
