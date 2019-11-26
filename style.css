@@ -27,6 +27,41 @@ body {
   z-index: 5;
 }
 
+.bot1_pot{
+  z-index: 4; 
+  position: absolute;
+  margin-top: 170px; 
+  margin-left: -214px;
+}
+
+.bot2_pot{
+  z-index: 4; 
+  position: absolute;
+  margin-top: 340px; 
+  margin-left: -240px;
+}
+
+.bot4_pot{
+  z-index: 4;
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 5px;
+}
+
+.bot5_pot{
+  z-index: 4; 
+  position: absolute;
+  margin-top: 210px; 
+  margin-left: 175px;
+}
+
+.player_pot{
+  z-index: 4; 
+  position: absolute;
+  margin-top: 400px; 
+  margin-left: 5px;
+}
+
 .bot-1 {
  z-index: 1;
  height: 230px;
