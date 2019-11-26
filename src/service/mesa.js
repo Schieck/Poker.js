@@ -7,7 +7,6 @@ class Mesa {
     }
 
     setUpHand() {
-        this._firstsPlay()
         this._distributeCards()
         this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof Jogador))
         this.user = _.find(this.players, player => player instanceof Jogador)
@@ -88,12 +87,6 @@ class Mesa {
             player.playable = player.value > 0
             player.cards = []
         })
-    }
-
-    _firstsPlay() {
-        let playables = this._findPlayablePlayers(this.players)
-        mesa.tablePot += playables[0].play()
-        mesa.tablePot += playables[1].play()
     }
 
     _distributeCards() {
