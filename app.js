@@ -24,7 +24,8 @@ window.onload = () => {
 
 const mainPlayFlow = () => {
     drawTable()
-    if (mesa.getPlayablePlayersNumber() != 1) {
+    let playablePlayers = mesa.getPlayablePlayersNumber();
+    if (!(playablePlayers.lenght == 1 && playablePlayers[0].id == 'player')) {
         if (mesa.round <= 4) {
             mesa.playFirsts()
             if (!user.playable) {

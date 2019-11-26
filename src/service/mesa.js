@@ -15,7 +15,7 @@ class Mesa {
     }
 
     getPlayablePlayersNumber() {
-        return this._findPlayablePlayers(this.players).length
+        return this._findPlayablePlayers(this.players)
     }
 
     playFirsts() {
