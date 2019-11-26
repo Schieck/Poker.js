@@ -30,15 +30,15 @@ body {
 .bot1_pot{
   z-index: 4; 
   position: absolute;
-  margin-top: 170px; 
-  margin-left: -214px;
+  margin-top: 340px; 
+  margin-left: -240px;
 }
 
 .bot2_pot{
   z-index: 4; 
   position: absolute;
-  margin-top: 340px; 
-  margin-left: -240px;
+  margin-top: 170px; 
+  margin-left: -214px;
 }
 
 .bot4_pot{
