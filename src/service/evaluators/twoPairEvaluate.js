@@ -12,8 +12,8 @@ class TwoPairEvaluate {
         })
         let remainingCard = _.sortBy(this.getRemainings(newCards, _.flatten(pairsGroup)), 'value').reverse()[0]
         let getPairsValue = summedGroups[0] > summedGroups[1]
-            ? 2000 + summedGroups[0] * 20 + summedGroups[1] * 10
-            : 2000 + summedGroups[1] * 20 + summedGroups[0] * 10
+            ? 4000 + summedGroups[0] * 20 + summedGroups[1] * 10
+            : 4000 + summedGroups[1] * 20 + summedGroups[0] * 10
         return getPairsValue + remainingCard.value
 
     }

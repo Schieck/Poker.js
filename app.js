@@ -65,13 +65,10 @@ const drawTable = () => {
     flipTableCards()
     mesa.players.forEach(player => {
         $(`#${player.id}_pot`).html(player.value);
+        if (!player.playable && player.id != 'player') hideBotCards(player.id)
         player.cards.forEach((card, index) => {
             let cardElement = $(`#${player.id}_card${index}`)
-            if (!player.playable && player.id != 'player') {
-                cardElement.css('display', 'none')
-            } else {
-                updateVisibility(cardElement, card)
-            }
+            updateVisibility(cardElement, card)
         })
     });
 }
@@ -87,6 +84,11 @@ const flipTableCards = () => {
     })
     updateVisibility($('#turn'), turn)
     updateVisibility($('#river'), river)
+}
+
+const hideBotCards = (botId) => {
+    $(`#${botId}_card0`).css('display', 'none')
+    $(`#${botId}_card1`).css('display', 'none')
 }
 
 const updateVisibility = (imgElemt, card) => {

@@ -7,6 +7,7 @@ class Mesa {
     }
 
     setUpHand() {
+        this._firstsPlay()
         this._distributeCards()
         this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof Jogador))
         this.user = _.find(this.players, player => player instanceof Jogador)
@@ -47,7 +48,7 @@ class Mesa {
     distribuitsEarings() {
         let playable = this._findPlayablePlayers(this.players)
         let winners = gameEvaluateLogic.findWinners(this.tableCards, playable)
-        winners.forEach(winner => winner.receiveChips(Math.round(this.tablePot/winners.length)))
+        winners.forEach(winner => winner.receiveChips(Math.round(this.tablePot / winners.length)))
         playable.forEach(player => player.setVisibleCards(true))
         this.tablePot = 0
     }
@@ -89,6 +90,12 @@ class Mesa {
         })
     }
 
+    _firstsPlay() {
+        let playables = this._findPlayablePlayers(this.players)
+        mesa.tablePot += playables[0].play()
+        mesa.tablePot += playables[1].play()
+    }
+
     _distributeCards() {
         let deck = new Deck()
         deck.shuffle()
@@ -115,9 +122,8 @@ class Mesa {
 
     _loadPlayers(players) {
         return players.map(player => {
-            if(player.id == 'player') return new Jogador(player.id, player.value, player.cards, player.playable)
+            if (player.id == 'player') return new Jogador(player.id, player.value, player.cards, player.playable)
             else return new Bot(player.id, player.value, player.cards, player.playable)
         })
     }
-
 }

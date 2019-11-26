@@ -19,7 +19,6 @@ class GameEvaluateLogic {
     }
     
     _getEvaluator(cards) {
-        return this.evaluators.find(evaluator => evaluator.evaluate(_.sortBy(cards, 'value')))
+        return this.evaluators.find(evaluator => evaluator.evaluate(cards, 'value'))
     }
 }
-
