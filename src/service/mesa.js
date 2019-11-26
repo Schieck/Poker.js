@@ -6,12 +6,9 @@ class Mesa {
         this.round = 1
     }
 
-    setUpHand() {
+    init() {
         this._distributeCards()
-        this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof Jogador))
-        this.user = _.find(this.players, player => player instanceof Jogador)
-        this.lastPlayers = _.takeRightWhile(this.players, player => !(player instanceof Jogador))
-
+        this._setUpHand()
     }
 
     getPlayablePlayersNumber() {
@@ -55,7 +52,8 @@ class Mesa {
     nextHand() {
         this._cleanTable()
         this._moveDealer()
-        this.setUpHand()
+        this._distributeCards()
+        this._setUpHand()
     }
 
     toJson() {
@@ -72,6 +70,14 @@ class Mesa {
         this.tablePot = tablePot
         this.round = round
         this.tableCards = tableCards
+        this._setUpHand()
+    }
+
+    _setUpHand() {
+        this.firstPlayers = _.takeWhile(this.players, player => !(player instanceof Jogador))
+        this.user = _.find(this.players, player => player instanceof Jogador)
+        this.lastPlayers = _.takeRightWhile(this.players, player => !(player instanceof Jogador))
+
     }
 
     _playTurn(players) {

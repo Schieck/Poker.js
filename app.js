@@ -18,7 +18,7 @@ let players = [
 let mesa = new Mesa(_.shuffle(players), 0, gameEvaluateLogic)
 
 window.onload = () => {
-    mesa.setUpHand()
+    mesa.init()
     mainPlayFlow()
 }
 
